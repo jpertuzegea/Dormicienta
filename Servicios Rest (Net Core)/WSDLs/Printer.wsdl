@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ExternalPrinterServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="Printer.xsd" namespace="http://tempuri.org/"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExternalPrinterService_GenerateWSPolicyFormatCollect_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSPolicyFormatCollect"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalPrinterService_GenerateWSPolicyFormatCollect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSPolicyFormatCollectResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalPrinterService_GenerateWSPolicyPrinter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSPolicyPrinter"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalPrinterService_GenerateWSPolicyPrinter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSPolicyPrinterResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalPrinterService_GenerateWSQuotePrinter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSQuotePrinter"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalPrinterService_GenerateWSQuotePrinter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSQuotePrinterResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalPrinterService_GenerateWSTempPrinter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSTempPrinter"/>
+  </wsdl:message>
+  <wsdl:message name="IExternalPrinterService_GenerateWSTempPrinter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateWSTempPrinterResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IExternalPrinterService">
+    <wsdl:operation name="GenerateWSPolicyFormatCollect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyFormatCollect" message="tns:IExternalPrinterService_GenerateWSPolicyFormatCollect_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyFormatCollectResponse" message="tns:IExternalPrinterService_GenerateWSPolicyFormatCollect_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSPolicyPrinter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyPrinter" message="tns:IExternalPrinterService_GenerateWSPolicyPrinter_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyPrinterResponse" message="tns:IExternalPrinterService_GenerateWSPolicyPrinter_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSQuotePrinter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSQuotePrinter" message="tns:IExternalPrinterService_GenerateWSQuotePrinter_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSQuotePrinterResponse" message="tns:IExternalPrinterService_GenerateWSQuotePrinter_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSTempPrinter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSTempPrinter" message="tns:IExternalPrinterService_GenerateWSTempPrinter_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IExternalPrinterService/GenerateWSTempPrinterResponse" message="tns:IExternalPrinterService_GenerateWSTempPrinter_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IExternalPrinterService" type="tns:IExternalPrinterService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerateWSPolicyFormatCollect">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyFormatCollect" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSPolicyPrinter">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyPrinter" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSQuotePrinter">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSQuotePrinter" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSTempPrinter">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSTempPrinter" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IExternalPrinterService1" type="tns:IExternalPrinterService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerateWSPolicyFormatCollect">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyFormatCollect" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSPolicyPrinter">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSPolicyPrinter" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSQuotePrinter">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSQuotePrinter" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateWSTempPrinter">
+      <soap:operation soapAction="http://tempuri.org/IExternalPrinterService/GenerateWSTempPrinter" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExternalPrinterServices">
+    <wsdl:port name="BasicHttpBinding_IExternalPrinterService" binding="tns:BasicHttpBinding_IExternalPrinterService">
+      <soap:address location="http://localhost:4000/External/ExternalPrinterServices"/>
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IExternalPrinterService1" binding="tns:BasicHttpBinding_IExternalPrinterService1">
+      <soap:address location="http://localhost:4000/ExternalPrinterServices"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

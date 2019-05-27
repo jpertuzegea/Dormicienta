@@ -1,0 +1,26 @@
+Los servicios que no necesitan ningun parametro de entrada son:
+
+- GenerateIdentityCardTypeList()
+- GenerateListAdressType()
+- GenerateListCompanyType()
+- GenerateListCompanyType()
+- GenerateListCountryStateCity()
+- GenerateListDetail()
+- GenerateListEconomicActivity()
+- GenerateRatingZoneList()
+- GenereteListPhoneType()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
