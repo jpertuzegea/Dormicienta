@@ -9,14 +9,14 @@ namespace BLL_SONOLIENTA
 {
     public class BLL_Login
     {
-
+        
         public Boolean InicarSesion(UsuariosModel UsuariosModel) {
 
-            usuarios usuario = bd.usuarios.Where(u => u.usuarioRed.ToUpper().Equals(Usuarios_Model.usuarioRed.ToUpper())
+            Usuario usuario = bd.usuarios.Where(u => u.usuarioRed.ToUpper().Equals(UsuariosModel.usuarioRed.ToUpper())
                &&
-               u.clave.Equals(Usuarios_Model.clave) // se debe encriptar con RSA la clave ingresada y luego compararla
+               u.clave.Equals(UsuariosModel.clave) // se debe encriptar con RSA la clave ingresada y luego compararla
                &&
-               u.estado == (byte)Enum_Estados.Activo).FirstOrDefault();
+               u.estado == (byte)EnumEstados.Activo).FirstOrDefault();
 
             if ((usuario != null))
             {
@@ -57,5 +57,6 @@ namespace BLL_SONOLIENTA
                 System.Web.HttpContext.Current.Response.Redirect("/login");// si la sesion no existe, lo direcciona al login
             }
         }
+        
     }
 }

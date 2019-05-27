@@ -45,6 +45,7 @@
     <Compile Include="BLL_Login.cs" />
     <Compile Include="BLL_Marca.cs" />
     <Compile Include="BLL_Producto.cs" />
+    <Compile Include="BLL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
