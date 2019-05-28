@@ -1,4 +1,5 @@
-﻿using MODELOS_SONOLIENTA.BD;
+﻿using DAO_SONOLIENTA;
+using MODELOS_SONOLIENTA.BD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace BLL_SONOLIENTA
     {
         public List<MarcaModel> ListarMarcas(EnumFiltroEstado Filtro)) 
         {
-            List<Marca> ListMarca = null;
+            List<MARCA> ListMarca = null;
             try
             {
                 switch (filtro)

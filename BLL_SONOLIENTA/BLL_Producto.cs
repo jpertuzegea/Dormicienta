@@ -1,4 +1,6 @@
-﻿using MODELOS_SONOLIENTA.BD;
+﻿using DAO_SONOLIENTA;
+using DAO_SONOLIENTA.Enum;
+using MODELOS_SONOLIENTA.BD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +11,26 @@ namespace BLL_SONOLIENTA
 {
     public class BLL_Producto
     {
+        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
 
 
-        public List<ProductoModel> ListarProductos(EnumFiltroEstado Filtro)) 
+        public List<PRODUCTO> ListarProductos(EnumFiltroEstado Filtro) 
         {
-            List<Producto> ListProducto = null;
+            List<PRODUCTO> ListProducto = null;
             try
             {
-                switch (filtro)
+                switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        ListProducto = bd.Producto.Where(c => c.estado == (byte) EnumEstados.Activo).ToList();
+                        ListProducto = bd.PRODUCTO.Where(c => c.Estado == (byte) EnumEstados.Activo).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        ListProducto = bd.Producto.Where(c => c.estado == (byte) EnumEstados.Inactivo).ToList();
+                        ListProducto = bd.PRODUCTO.Where(c => c.Estado == (byte) EnumEstados.Inactivo).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        ListProducto = bd.Producto.ToList();
+                        ListProducto = bd.PRODUCTO.ToList();
                         break;
                 }
                 return (ListProducto);// retorna una lista de entidades

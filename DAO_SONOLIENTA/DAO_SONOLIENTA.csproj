@@ -53,6 +53,8 @@
     <Compile Include="CATEGORIA.cs">
       <DependentUpon>Sonolienta_BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Enum\EnumEstados.cs" />
+    <Compile Include="Enum\EnumFiltroEstado.cs" />
     <Compile Include="MARCA.cs">
       <DependentUpon>Sonolienta_BD.tt</DependentUpon>
     </Compile>
