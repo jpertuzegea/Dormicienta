@@ -1,36 +1,39 @@
-﻿using System;
+﻿using DAO_SONOLIENTA;
+using DAO_SONOLIENTA.Enum;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace BLL_SONOLIENTA
 {
     public class BLL_Usuario
     {
+        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
 
         // metodo para listar los Usuarios existentes
-        public List<Usuario> ListUsuarios(EnumFiltroEstado Filtro)
+        public List<USUARIO> ListUsuarios(EnumFiltroEstado Filtro)
         {
             try
             {
                 List<USUARIO> ListUsuarios = null;
 
-                switch (filtro)
+                switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        ListUsuarios = bd.Usuario.Where(c => c.estado == (byte)EnumEstados.Activo).ToList();
+                        ListUsuarios = bd.USUARIO.Where(c => c.Estado == (byte)EnumEstados.Activo).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        ListUsuarios = bd.Usuario.Where(c => c.estado == (byte)EnumEstados.Inactivo).ToList();
+                        ListUsuarios = bd.USUARIO.Where(c => c.Estado == (byte)EnumEstados.Inactivo).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        ListUsuarios = bd.Usuario.ToList();
+                        ListUsuarios = bd.USUARIO.ToList();
                         break;
-                } 
-                
+                }
+
                 return (ListUsuarios);// retorna una lista de entidades
             }
             catch (Exception error)
@@ -42,7 +45,7 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para buscar un solo Usuario por id
-        public Usuario GetUsuarioByUsuarioId(int UsuarioId)
+        public USUARIO GetUsuarioByUsuarioId(int UsuarioId)
         {
             try
             {
@@ -67,15 +70,15 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para crear un Usuario
-        public Boolean GuargarUsuario(UsuarioModel UsuarioModel)
+        public Boolean GuargarUsuario(USUARIO USUARIO)
         {
-            if (UsuarioModel != null)
+            if (USUARIO != null)
             {// si el objeto es diferente de nulo
                 try
-                {  
-                    UsuariosModel.usuarioRed = ArmarUsuaroRed(UsuarioModel.nombreCompleto); // se crea el usuario de red
-                    AssemblersUsuarios AssemblersUsuarios = new AssemblersUsuarios();
-                    bd.usuarios.Add(AssemblersUsuarios.de_modelo_a_entidad(UsuariosModel));
+                {
+                    USUARIO.UsuarioRed = ArmarUsuaroRed(USUARIO.NombreCompleto); // se crea el usuario de red
+
+                    bd.USUARIO.Add(USUARIO);
                     bd.SaveChanges();
                     return true;
                 }
@@ -92,20 +95,19 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para Modificar un Usuario
-        public Boolean ModificarUsuario(UsuarioModel UsuarioModel)
+        public Boolean ModificarUsuario(USUARIO USUARIO)
         {
-            usuario  usuarios = GetUsuarioByUsuarioId(UsuarioModel.UsuarioId);
+            USUARIO usuarios = GetUsuarioByUsuarioId(USUARIO.UsuarioId);
 
             if (usuarios != null)
             {
                 try
                 {
-                   
-                    usuarios.NombreCompleto = UsuarioModel.NombreCompleto;
+                    usuarios.NombreCompleto = USUARIO.NombreCompleto;
                     //usuarios.UsuarioRed = Usuarios_Model.UsuarioRed;// Usuario red nunca se cambia
-                    usuarios.Clave = UsuarioModel.Clave;
-                    usuarios.Estado = UsuarioModel.Estado;
-                    usuarios.Telefono = UsuarioModel.Telefono;
+                    usuarios.Clave = USUARIO.Clave;
+                    usuarios.Estado = USUARIO.Estado;
+                    usuarios.Telefono = USUARIO.Telefono;
 
                     bd.Entry(usuarios).State = EntityState.Modified;
                     bd.SaveChanges();
@@ -128,40 +130,26 @@ namespace BLL_SONOLIENTA
         // Arma un select list de Usuarios, con la propiedad value y name 
         public List<SelectListItem> ArmarSelectUsuarios(EnumFiltroEstado filtro)
         {
-            Assemblers_Usuarios Assemblers_Usuarios = new Assemblers_Usuarios();
-            List<UsuariosModel> Lista = null;
 
-            switch (filtro)
-            {
-                case EnumFiltroEstado.Activo://Activo
-                    Lista = Assemblers_Usuarios.List_de_entidades_a_modelos(ListUsuarios().Where(c => c.estado == (byte)EnumEstados.Activo).ToList());
-                    break;
+            List<USUARIO> Lista = Lista = ListUsuarios(filtro);
 
-                case EnumFiltroEstado.Inactivo://Inactivo
-                    Lista = Assemblers_Usuarios.List_de_entidades_a_modelos(ListUsuarios().Where(c => c.estado == (byte)EnumEstados.Inactivo).ToList());
-                    break;
-
-                case EnumFiltroEstado.Todos:// Todos
-                    Lista = Assemblers_Usuarios.List_de_entidades_a_modelos(ListUsuarios());
-                    break;
-            }
 
             List<SelectListItem> result = new List<SelectListItem>();// se debe importar la dll que esta en el proyecto vista
             foreach (var item in Lista)
             {
-                var nombre = item.nombre_completo;
-                var valor = item.usuariosID;
+                var nombre = item.NombreCompleto;
+                var valor = item.UsuarioId;
                 result.Add(new SelectListItem() { Text = nombre, Value = valor.ToString() });
             }
             return result;
         }
-              
+
         // Metodo para validar si el usuarioRed existe ya registrado en la BD
         public Boolean ExisteUsuarioRed(String usuariored)
         {
             // si existe en la bd, se envia true y no se puede volvera utilizar este usuarioRed 
             // de lo contrario se envia false y  si se puede continuar con el guardado 
-            Boolean usuario = bd.usuarios.Count(e => e.usuarioRed.ToUpper() == usuariored.ToUpper()) > 0;
+            Boolean usuario = bd.USUARIO.Count(e => e.UsuarioRed.ToUpper() == usuariored.ToUpper()) > 0;
             return usuario;
         }
 
@@ -174,7 +162,7 @@ namespace BLL_SONOLIENTA
 
             int sumador = 1;
 
-            while (Existe_UsuarioRed(usuarioRed) == true)// mientras que el usuarioRed exista aumentele 1 al usuario base
+            while (ExisteUsuarioRed(usuarioRed) == true)// mientras que el usuarioRed exista aumentele 1 al usuario base
             {
                 usuarioRed = usuarioRedBase + sumador;
                 sumador = sumador + 1;

@@ -1700,9 +1700,9 @@
       <Project>{94326bd7-05fa-4ed9-9a22-be61fa682267}</Project>
       <Name>BLL_SONOLIENTA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MODELOS_SONOLIENTA\MODELOS_SONOLIENTA.csproj">
-      <Project>{9195bc00-8560-460f-9a7a-3f8bd1231991}</Project>
-      <Name>MODELOS_SONOLIENTA</Name>
+    <ProjectReference Include="..\DAO_SONOLIENTA\DAO_SONOLIENTA.csproj">
+      <Project>{8D2A57DD-C405-4CB7-B7DE-93FC4966A905}</Project>
+      <Name>DAO_SONOLIENTA</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

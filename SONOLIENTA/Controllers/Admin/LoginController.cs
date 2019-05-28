@@ -1,5 +1,5 @@
 ﻿using BLL_SONOLIENTA;
-using MODELOS_SONOLIENTA.BD;
+using DAO_SONOLIENTA; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace SONOLIENTA.Controllers.Admin
                 
         // POST: Login
         [HttpPost]
-        public ActionResult Index(UsuariosModel UsuariosModel)
+        public ActionResult Index(USUARIO UsuariosModel)
         {
             BLL_Login BLL_Login = new BLL_Login();
             /*  if(BLL_Login.InicarSesion())

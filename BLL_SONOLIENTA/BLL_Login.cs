@@ -1,27 +1,30 @@
-﻿using MODELOS_SONOLIENTA.BD;
+﻿using DAO_SONOLIENTA;
+using DAO_SONOLIENTA.Enum; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace BLL_SONOLIENTA
 {
     public class BLL_Login
     {
-        
-        public Boolean InicarSesion(UsuariosModel UsuariosModel) {
+        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
 
-            Usuario usuario = bd.usuarios.Where(u => u.usuarioRed.ToUpper().Equals(UsuariosModel.usuarioRed.ToUpper())
+        public Boolean InicarSesion(USUARIO USUARIO) {
+
+            USUARIO usuario = bd.USUARIO.Where(u => u.UsuarioRed.ToUpper().Equals(USUARIO.UsuarioRed.ToUpper())
                &&
-               u.clave.Equals(UsuariosModel.clave) // se debe encriptar con RSA la clave ingresada y luego compararla
+               u.Clave.Equals(USUARIO.Clave) // se debe encriptar con RSA la clave ingresada y luego compararla
                &&
-               u.estado == (byte)EnumEstados.Activo).FirstOrDefault();
+               u.Estado == (byte)EnumEstados.Activo).FirstOrDefault();
 
             if ((usuario != null))
             {
-                System.Web.HttpContext.Current.Session["IdUsuarioSonolienta"] = usuario.usuariosID;
-                System.Web.HttpContext.Current.Session["NombreUsuarioRed"] = usuario.usuarioRed;
+                System.Web.HttpContext.Current.Session["IdUsuarioSonolienta"] = usuario.UsuarioId;
+                System.Web.HttpContext.Current.Session["NombreUsuarioRed"] = usuario.UsuarioRed;
                
                 return true;
             }

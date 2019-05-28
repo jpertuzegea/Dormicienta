@@ -1,33 +1,36 @@
-﻿using MODELOS_SONOLIENTA.BD;
+﻿using DAO_SONOLIENTA;
+using DAO_SONOLIENTA.Enum;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace BLL_SONOLIENTA
 {
     public class BLL_Categoria
     {
-        public List<CategoriaModel> ListarCategorias(EnumFiltroEstado Filtro)
+        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
+
+        public List<CATEGORIA> ListarCategorias(EnumFiltroEstado Filtro)
         {
-            List<Categoria> ListCategorias = null;
+            List<CATEGORIA> ListCategorias = null;
             try
             {
-                switch (filtro)
+                switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        ListCategorias = bd.Categoria.Where(c => c.estado == (byte)EnumEstados.Activo).ToList(); 
+                        ListCategorias = bd.CATEGORIA.Where(c => c.Estado == (byte)EnumEstados.Activo).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        ListCategorias = bd.Categoria.Where(c => c.estado == (byte)EnumEstados.Inactivo).ToList();
+                        ListCategorias = bd.CATEGORIA.Where(c => c.Estado == (byte)EnumEstados.Inactivo).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        ListCategorias = bd.Categoria.ToList() ;
+                        ListCategorias = bd.CATEGORIA.ToList();
                         break;
-                } 
+                }
                 return (ListCategorias);// retorna una lista de entidades
             }
             catch (Exception error)
@@ -38,14 +41,14 @@ namespace BLL_SONOLIENTA
             }
 
         }
- 
+
         // metodo para buscar un solo Usuario por id
-        public Categoria GetCategoriaByCatewgoriaId(int CategoriaId)
+        public CATEGORIA GetCategoriaByCategoriaId(int CategoriaId)
         {
             try
             {
-                Categoria Categoria = bd.Categoria.Find(CategoriaId);
-               
+                CATEGORIA Categoria = bd.CATEGORIA.Find(CategoriaId);
+
                 if (Categoria != null)
                 {
                     return (Categoria);
@@ -64,14 +67,13 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para crear un Usuario
-        public Boolean GuargarCategoria(CategoriaModel CategoriaModel)
+        public Boolean GuargarCategoria(CATEGORIA CategoriaModel)
         {
             if (CategoriaModel != null)
             {// si el objeto es diferente de nulo
                 try
-                { 
-                    AssemblersCategoria AssemblersCategoria = new AssemblersCategoria();
-                    bd.Categoria.Add(AssemblersCategoria.de_modelo_a_entidad(CategoriaModel));
+                {
+                    bd.CATEGORIA.Add(CategoriaModel);
                     bd.SaveChanges();
                     return true;
                 }
@@ -88,18 +90,18 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para Modificar un Usuario
-        public Boolean ModificarCategoria(CategoriaModel CategoriaModel)
+        public Boolean ModificarCategoria(CATEGORIA CATEGORIA)
         {
-            Categoria Categoria = GetCategoriaByCategoriaId(CategoriaModel.CategoriaId);
+            CATEGORIA Categoria = GetCategoriaByCategoriaId(CATEGORIA.CategoriaId);
 
             if (Categoria != null)
             {
                 try
-                {  
-                    Categoria.Nombre = CategoriaModel.Nombre;
-                    Categoria.Descripcion = CategoriaModel.Descripcion;
-                    Categoria.Imagen = CategoriaModel.Imagen;
-                    Categoria.Estado = CategoriaModel.Estado;
+                {
+                    Categoria.Nombre = CATEGORIA.Nombre;
+                    Categoria.Descripcion = CATEGORIA.Descripcion;
+                    Categoria.Imagen = CATEGORIA.Imagen;
+                    Categoria.Estado = CATEGORIA.Estado;
 
                     bd.Entry(Categoria).State = EntityState.Modified;
                     bd.SaveChanges();
@@ -118,7 +120,21 @@ namespace BLL_SONOLIENTA
             }
 
         }
-         
 
+        // Arma un select list de Categorias, con la propiedad value y name 
+        public List<SelectListItem> ArmarSelectUsuarios(EnumFiltroEstado filtro)
+        {
+            List<CATEGORIA> Lista = null;
+            Lista = ListarCategorias(filtro);
+
+            List<SelectListItem> result = new List<SelectListItem>();// se debe importar la dll que esta en el proyecto vista
+            foreach (var item in Lista)
+            {
+                var nombre = item.Nombre;
+                var valor = item.CategoriaId;
+                result.Add(new SelectListItem() { Text = nombre, Value = valor.ToString() });
+            }
+            return result;
+        }
     }
 }

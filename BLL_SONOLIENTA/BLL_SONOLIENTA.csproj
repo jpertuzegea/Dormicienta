@@ -39,7 +39,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\DLL_Usadas\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,20 +54,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL_Categoria.cs" />
+    <Compile Include="BLL_File.cs" />
     <Compile Include="BLL_Login.cs" />
     <Compile Include="BLL_Marca.cs" />
     <Compile Include="BLL_Producto.cs" />
     <Compile Include="BLL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\FuncionesEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO_SONOLIENTA\DAO_SONOLIENTA.csproj">
       <Project>{8d2a57dd-c405-4cb7-b7de-93fc4966a905}</Project>
       <Name>DAO_SONOLIENTA</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MODELOS_SONOLIENTA\MODELOS_SONOLIENTA.csproj">
-      <Project>{9195BC00-8560-460F-9A7A-3F8BD1231991}</Project>
-      <Name>MODELOS_SONOLIENTA</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

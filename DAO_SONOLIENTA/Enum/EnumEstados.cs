@@ -8,8 +8,12 @@ namespace DAO_SONOLIENTA.Enum
 {
     public enum EnumEstados
     {
-        Inactivo = 0,
-        Activo = 1
+        // los enum empiezan a enumerarse desde cero 
 
+        Inactivo = 0, // 0
+        Activo = 1  // 1
     }
 }
+
+
+

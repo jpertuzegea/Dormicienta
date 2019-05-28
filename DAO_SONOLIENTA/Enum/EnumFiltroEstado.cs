@@ -8,10 +8,9 @@ namespace DAO_SONOLIENTA.Enum
 {
     public enum EnumFiltroEstado
     {
-
-        Inactivo = 0,
-        Activo = 1,
-        Todos = 2
-
+        // los enum empiezan a enumerarse desde cero 
+        Inactivo = 0,  // 0
+        Activo = 1, // 1
+        Todos = 2 // 2
     }
 }

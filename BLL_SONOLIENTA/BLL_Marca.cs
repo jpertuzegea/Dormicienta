@@ -1,7 +1,8 @@
 ﻿using DAO_SONOLIENTA;
-using MODELOS_SONOLIENTA.BD;
+using DAO_SONOLIENTA.Enum; 
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,23 +11,25 @@ namespace BLL_SONOLIENTA
 {
     public class BLL_Marca
     {
-        public List<MarcaModel> ListarMarcas(EnumFiltroEstado Filtro)) 
+        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
+
+        public List<MARCA> ListarMarcas(EnumFiltroEstado Filtro)
         {
             List<MARCA> ListMarca = null;
             try
             {
-                switch (filtro)
+                switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        ListMarca = bd.Marca.Where(c => c.estado == (byte)EnumEstados.Activo).ToList();
+                        ListMarca = bd.MARCA.Where(c => c.Estado == (byte)EnumEstados.Activo).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        ListMarca = bd.Marca.Where(c => c.estado == (byte)EnumEstados.Inactivo).ToList();
+                        ListMarca = bd.MARCA.Where(c => c.Estado == (byte)EnumEstados.Inactivo).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        ListMarca = bd.Marca.ToList();
+                        ListMarca = bd.MARCA.ToList();
                         break;
                 }
                 return (ListMarca);// retorna una lista de entidades
@@ -41,11 +44,11 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para buscar una sola Marca por id
-        public Marca GetMarcaByMarcaId(int MarcaId)
+        public MARCA GetMarcaByMarcaId(int MarcaId)
         {
             try
             {
-        Marca Marca = bd.Marca.Find(MarcaId);
+        MARCA Marca = bd.MARCA.Find(MarcaId);
 
                 if (Marca != null)
                 {
@@ -65,14 +68,13 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para crear un Usuario
-        public Boolean GuargarMarca(MarcaModel MarcaModel)
+        public Boolean GuargarMarca(MARCA MARCA)
         {
-            if (MarcaModel != null)
+            if (MARCA != null)
             {// si el objeto es diferente de nulo
                 try
-                {
-                    AssemblersMarca AssemblersMarca = new AssemblersMarca();
-                    bd.Marca.Add(AssemblersMarca.de_modelo_a_entidad(MarcaModel));
+                {                   
+                    bd.MARCA.Add(MARCA);
                     bd.SaveChanges();
                     return true;
                 }
@@ -89,17 +91,17 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para Modificar un Usuario
-        public Boolean ModificarMarca(MarcaModel MarcaModel)
+        public Boolean ModificarMarca(MARCA MARCA)
         {
-            Marca Marca = GetMarcaByMarcaId(MarcaModel.MarcaId);
+            MARCA Marca = GetMarcaByMarcaId(MARCA.MarcaId);
 
             if (Marca != null)
             {
                 try
                 {
-                    Marca.Nombre = MarcaModel.Nombre;
-                    Marca.Descripcion = MarcaModel.Descripcion;
-                    Marca.Estado = MarcaModel.Estado;
+                    Marca.Nombre = MARCA.Nombre;
+                    Marca.Descripcion = MARCA.Descripcion;
+                    Marca.Estado = MARCA.Estado;
 
                     bd.Entry(Marca).State = EntityState.Modified;
                     bd.SaveChanges();

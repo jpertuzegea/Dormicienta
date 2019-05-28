@@ -4,6 +4,7 @@ USE SONOLIENTA;
 CREATE TABLE USUARIO(
 UsuarioId INT NOT NULL IDENTITY(1,1),
 NombreCompleto VARCHAR(70),
+Cedula VARCHAR(20),
 UsuarioRed varchar(70),
 Clave varchar(70),
 Telefono varchar(15),
