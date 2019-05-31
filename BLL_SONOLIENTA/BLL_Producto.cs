@@ -3,9 +3,11 @@ using DAO_SONOLIENTA.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace BLL_SONOLIENTA
 {
@@ -19,18 +21,20 @@ namespace BLL_SONOLIENTA
             List<PRODUCTO> ListProducto = null;
             try
             {
+
+
                 switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        ListProducto = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Activo).ToList();
+                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Activo).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        ListProducto = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Inactivo).ToList();
+                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Inactivo).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        ListProducto = bd.PRODUCTO.ToList();
+                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).ToList();
                         break;
                 }
                 return (ListProducto);// retorna una lista de entidades
@@ -68,13 +72,21 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para crear un Producto
-        public Boolean GuargarProducto(PRODUCTO PRODUCTO)
+        public Boolean GuargarProducto(PRODUCTO Producto, HttpPostedFileBase file)
         {
-            if (PRODUCTO != null)
+            if (Producto != null)
             {// si el objeto es diferente de nulo
                 try
                 {
-                    bd.PRODUCTO.Add(PRODUCTO);
+                    byte[] imagenData = null;
+                    using (var FotoCategoria = new BinaryReader(file.InputStream))
+                    {
+                        imagenData = FotoCategoria.ReadBytes(file.ContentLength);
+                    }
+                    Producto.Imagen = imagenData;
+                    Producto.ContetType = file.ContentType;
+
+                    bd.PRODUCTO.Add(Producto);
                     bd.SaveChanges();
                     return true;
                 }
@@ -91,7 +103,7 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para Modificar un Producto
-        public Boolean ModificarProducto(PRODUCTO PRODUCTO)
+        public Boolean ModificarProducto(PRODUCTO PRODUCTO, HttpPostedFileBase file)
         {
             PRODUCTO Producto = GetProductoByProductoId(PRODUCTO.ProductoId);
 
@@ -99,8 +111,24 @@ namespace BLL_SONOLIENTA
             {
                 try
                 {
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        byte[] imagenData = null;
+                        using (var FotoCategoria = new BinaryReader(file.InputStream))
+                        {
+                            imagenData = FotoCategoria.ReadBytes(file.ContentLength);
+                        }
+                        Producto.Imagen = imagenData;
+                        Producto.ContetType = file.ContentType;
+                    }
+
                     Producto.Nombre = PRODUCTO.Nombre;
+                    Producto.Codigo = PRODUCTO.Codigo;
                     Producto.Descripcion = PRODUCTO.Descripcion;
+                    Producto.Nombre = PRODUCTO.Nombre;
+                    Producto.Precio = PRODUCTO.Precio;
+                    Producto.Categotia = PRODUCTO.Categotia;
+                    Producto.CantidadDisponible = PRODUCTO.CantidadDisponible;
                     Producto.Estado = PRODUCTO.Estado;
 
                     bd.Entry(Producto).State = EntityState.Modified;

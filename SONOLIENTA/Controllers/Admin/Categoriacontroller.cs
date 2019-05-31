@@ -73,7 +73,7 @@ namespace SONOLIENTA.Controllers
         //Update
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CategoriaUpdt(CATEGORIA CATEGORIA, Boolean ModificarImagen, HttpPostedFileBase file)
+        public ActionResult CategoriaUpdt(CATEGORIA CATEGORIA, HttpPostedFileBase file)
         {
 
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", (int)CATEGORIA.Estado);
@@ -83,7 +83,7 @@ namespace SONOLIENTA.Controllers
                 if (ModelState.IsValid)
                 {
                     BLL_Categoria BLL_Categoria = new BLL_Categoria();
-                    if (BLL_Categoria.ModificarCategoria(CATEGORIA, ModificarImagen, file))
+                    if (BLL_Categoria.ModificarCategoria(CATEGORIA, file))
                     {
                         return RedirectToAction("Index");
                     }

@@ -100,7 +100,7 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para Modificar un Usuario
-        public Boolean ModificarCategoria(CATEGORIA CATEGORIA, Boolean ModificarImagen, HttpPostedFileBase file)
+        public Boolean ModificarCategoria(CATEGORIA CATEGORIA, HttpPostedFileBase file)
         {
             CATEGORIA Categoria = GetCategoriaByCategoriaId(CATEGORIA.CategoriaId);
 
@@ -108,7 +108,7 @@ namespace BLL_SONOLIENTA
             {
                 try
                 {
-                    if (ModificarImagen)
+                    if (file != null && file.ContentLength > 0 )
                     {
                         byte[] imagenData = null;
                         using (var FotoCategoria = new BinaryReader(file.InputStream))
@@ -142,7 +142,7 @@ namespace BLL_SONOLIENTA
         }
 
         // Arma un select list de Categorias, con la propiedad value y name 
-        public List<SelectListItem> ArmarSelectUsuarios(EnumFiltroEstado filtro)
+        public List<SelectListItem> ArmarSelectCategorias(EnumFiltroEstado filtro)
         {
             List<CATEGORIA> Lista = null;
             Lista = ListarCategorias(filtro);

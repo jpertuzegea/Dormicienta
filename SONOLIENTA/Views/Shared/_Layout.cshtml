@@ -105,7 +105,8 @@
                         <div class="dropdown profile-element">
                             <a href="@Url.Action("Index", "Inicio" )" title="Inicio" class="links">
                                 <span>
-                                    <img alt="image" class="img-circle" src="~/Imagenes/perfil.jpg" />
+                                   <img alt="image" class="img-circle" src="~/Imagenes/perfil.jpg" /> 
+                                    @*<img  width="70" height="70" alt="image" class="img-circle" src="@Url.Action("VerImagen", "Categoria", new { CategoriaId = 5})" />*@
                                 </span>
                             </a>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -145,17 +146,17 @@
 
 
 
-                    <li>
+                    @*<li>
                         <a disabled href="index.html"><i class="fa fa-child"></i> <span class="nav-label">Opciones Especiales</span> <span class="fa arrow"></span></a>
-                        <ul disabled class="nav nav-second-level collapse">
+                        <ul disabled class="nav nav-second-level collapse">*@
                             @*<li>@Html.ActionLink("Imprimir Stiker", "index", "Imprimir_stiker")</li>
                                 <li>@Html.ActionLink("Abrir Radicado", "index", "Abrir_radicado")</li>*@
-                        </ul>
-                    </li>
+                        @*</ul>
+                    </li>*@
 
-                    <li>
+                    @*<li>
                         <a href="index.html"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reportes</span> <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
+                        <ul class="nav nav-second-level collapse">*@
 
                             @*<li>@Html.ActionLink("Ingresos al Sistema", "index", "Reportes")</li>*@
 
@@ -168,15 +169,15 @@
                                 {// solo es descomentar esta linea y ya *@
                             @*<li>@Html.ActionLink("Mi Dependencia", "MiDependencia", "Reportes")</li>*@
                             @*}*@
-                        </ul>
-                    </li>
+                        @*</ul>
+                    </li>*@
 
-                    <li>
+                    @*<li>
                         <a href="index.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Analisis de Datos</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>@Html.ActionLink("Ingresos al Sistema", "index", "Ingresos_sistema_grafico")</li>
                         </ul>
-                    </li>
+                    </li>*@
 
                 </ul>
             </div>
@@ -194,7 +195,7 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Bienvenido al <FONT COLOR="#1ab394">.:Sistema SIGECOR:.</FONT> </span>
+                            <span class="m-r-sm text-muted welcome-message">Bienvenido al <FONT COLOR="#1ab394">.:Sistema Dormicienta:.</FONT> </span>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">

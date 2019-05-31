@@ -67,7 +67,7 @@ namespace BLL_SONOLIENTA
             }
         }
 
-        // metodo para crear un Usuario
+        // metodo para crear una Marca
         public Boolean GuargarMarca(MARCA MARCA)
         {
             if (MARCA != null)

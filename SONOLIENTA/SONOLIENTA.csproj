@@ -1691,12 +1691,16 @@
     <Content Include="Views\Categoria\CategoriaAdd.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Categoria\CategoriaUpdt.cshtml" />
+    <Content Include="Views\Marca\Index.cshtml" />
+    <Content Include="Views\Marca\MarcaAdd.cshtml" />
+    <Content Include="Views\Marca\MarcaUpdt.cshtml" />
+    <Content Include="Views\Producto\Index.cshtml" />
+    <Content Include="Views\Producto\ProductoAdd.cshtml" />
+    <Content Include="Views\Producto\ProductoUpdt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Marca\" />
-    <Folder Include="Views\Producto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

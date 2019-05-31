@@ -81,7 +81,7 @@
                                             @Html.DisplayFor(modelItem => item.Descripcion)
                                         </td>
                                         <td>
-                                            <img width="100" height="100" src="@Url.Action("VerImagen", "Categoria", new { CategoriaId = item.CategoriaId})" />
+                                            <img width="60" height="60" src="@Url.Action("VerImagen", "Categoria", new { CategoriaId = item.CategoriaId})" />
                                         </td>
 
                                         <td>
@@ -90,9 +90,9 @@
                                                 {
                                                     estado = "Activo";
                                                 }
-                                                if (item.Estado == 2)
+                                                if (item.Estado == 0)
                                                 {
-                                                    estado = "Activo";
+                                                    estado = "Inactivo";
                                                 }
                                             }
                                             @Html.DisplayFor(modelItem => estado)
