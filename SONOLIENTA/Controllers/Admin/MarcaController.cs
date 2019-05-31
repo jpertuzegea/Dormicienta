@@ -15,6 +15,8 @@ namespace SONOLIENTA.Controllers
         // GET: Marca
         public ActionResult Index()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Marca BLL_Marca = new BLL_Marca();
             List<MARCA> Marcas = BLL_Marca.ListarMarcas(EnumFiltroEstado.Todos);
             return View(Marcas);
@@ -23,6 +25,8 @@ namespace SONOLIENTA.Controllers
         // GET: MarcaAdd
         public ActionResult MarcaAdd()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text");
             return View();
         }
@@ -32,6 +36,8 @@ namespace SONOLIENTA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult MarcaAdd(MARCA MARCA)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", (int)MARCA.Estado);
 
             if (ModelState.IsValid)
@@ -57,6 +63,8 @@ namespace SONOLIENTA.Controllers
         [HttpGet]
         public ActionResult MarcaUpdt(int id)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Marca BLL_Marca = new BLL_Marca();
             MARCA Marca = BLL_Marca.GetMarcaByMarcaId(id);
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", (int)Marca.Estado);
@@ -68,6 +76,7 @@ namespace SONOLIENTA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult MarcaUpdt(MARCA MARCA)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", (int)MARCA.Estado);
 

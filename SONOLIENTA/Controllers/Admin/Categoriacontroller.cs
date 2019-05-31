@@ -15,6 +15,8 @@ namespace SONOLIENTA.Controllers
 
         public ActionResult Index()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             List<CATEGORIA> Categorias = BLL_Categoria.ListarCategorias(EnumFiltroEstado.Todos);
 
@@ -24,6 +26,8 @@ namespace SONOLIENTA.Controllers
         // GET: CategoriaAdd
         public ActionResult CategoriaAdd()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text");
             return View();
         }
@@ -33,6 +37,8 @@ namespace SONOLIENTA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CategoriaAdd(CATEGORIA CATEGORIA, HttpPostedFileBase file)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             ViewBag.estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", (int)CATEGORIA.Estado);
 
             if (ModelState.IsValid)
@@ -64,6 +70,8 @@ namespace SONOLIENTA.Controllers
         [HttpGet]
         public ActionResult CategoriaUpdt(int id)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             CATEGORIA CATEGORIA = BLL_Categoria.GetCategoriaByCategoriaId(id);
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", (int)CATEGORIA.Estado);
@@ -75,6 +83,7 @@ namespace SONOLIENTA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CategoriaUpdt(CATEGORIA CATEGORIA, HttpPostedFileBase file)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", (int)CATEGORIA.Estado);
 
@@ -106,6 +115,8 @@ namespace SONOLIENTA.Controllers
 
         public ActionResult VerImagen(int CategoriaId)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             CATEGORIA Categoria = BLL_Categoria.GetCategoriaByCategoriaId(CategoriaId);
 

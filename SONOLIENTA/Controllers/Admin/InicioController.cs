@@ -12,8 +12,7 @@ namespace SONOLIENTA.Controllers.Admin
  
         public ActionResult Index()
         {
-            BLL_Login.VerificarSesionActiva();
-
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
             return View();
         }
     }

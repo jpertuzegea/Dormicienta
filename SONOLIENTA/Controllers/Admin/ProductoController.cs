@@ -15,6 +15,8 @@ namespace SONOLIENTA.Controllers
         // GET: Producto
         public ActionResult Index()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Producto BLL_Producto = new BLL_Producto();
             List<PRODUCTO> Producto = BLL_Producto.ListarProductos(EnumFiltroEstado.Todos);
             return View(Producto);
@@ -23,6 +25,8 @@ namespace SONOLIENTA.Controllers
         // GET: MarcaAdd
         public ActionResult ProductoAdd()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             List<SelectListItem> lista = BLL_Categoria.ArmarSelectCategorias(EnumFiltroEstado.Activo);
             ViewBag.Categoria = new SelectList(lista, "Value", "Text");
@@ -36,6 +40,8 @@ namespace SONOLIENTA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ProductoAdd(PRODUCTO Producto, HttpPostedFileBase file)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             List<SelectListItem> lista = BLL_Categoria.ArmarSelectCategorias(EnumFiltroEstado.Activo);
             ViewBag.Categoria = new SelectList(lista, "Value", "Text", Producto.Categotia);
@@ -73,6 +79,8 @@ namespace SONOLIENTA.Controllers
         [HttpGet]
         public ActionResult ProductoUpdt(int id)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Producto BLL_Producto = new BLL_Producto();
             PRODUCTO Producto = BLL_Producto.GetProductoByProductoId(id);
 
@@ -90,6 +98,7 @@ namespace SONOLIENTA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ProductoUpdt(PRODUCTO Producto, HttpPostedFileBase file)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             List<SelectListItem> lista = BLL_Categoria.ArmarSelectCategorias(EnumFiltroEstado.Activo);
@@ -127,6 +136,8 @@ namespace SONOLIENTA.Controllers
 
         public ActionResult VerImagen(int ProductoId)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Producto BLL_Producto = new BLL_Producto();
             PRODUCTO Producto = BLL_Producto.GetProductoByProductoId(ProductoId);
 

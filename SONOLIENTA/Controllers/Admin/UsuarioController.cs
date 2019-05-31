@@ -14,6 +14,8 @@ namespace SONOLIENTA.Controllers.Admin
     {
         public ActionResult Index()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Usuario BLL_Usuario = new BLL_Usuario();
             return View(BLL_Usuario.ListUsuarios(EnumFiltroEstado.Todos));
         }
@@ -21,6 +23,8 @@ namespace SONOLIENTA.Controllers.Admin
         [HttpGet]
         public ActionResult UsuarioAdd()
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text");
             return View();
         }
@@ -28,6 +32,8 @@ namespace SONOLIENTA.Controllers.Admin
         [HttpPost]
         public ActionResult UsuarioAdd(USUARIO USUARIO)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", USUARIO.Estado);
 
             if (ModelState.IsValid)
@@ -54,6 +60,8 @@ namespace SONOLIENTA.Controllers.Admin
         [HttpGet]
         public ActionResult UsuarioUpdt(int id)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             BLL_Usuario BLL_Usuario = new BLL_Usuario();
             USUARIO Usuario = BLL_Usuario.GetUsuarioByUsuarioId(id);
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", Usuario.Estado);
@@ -66,6 +74,8 @@ namespace SONOLIENTA.Controllers.Admin
         [ValidateAntiForgeryToken]
         public ActionResult UsuarioUpdt(USUARIO USUARIO)
         {
+            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+
             ViewBag.Estado = new SelectList(FuncionesEnum.ListaEnum<EnumEstados>(), "Value", "Text", USUARIO.Estado);
 
             if (USUARIO != null)
