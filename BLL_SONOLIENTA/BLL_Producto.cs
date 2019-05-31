@@ -11,7 +11,7 @@ namespace BLL_SONOLIENTA
 {
     public class BLL_Producto
     {
-        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
+        private Dormisienta_Entities bd = new Dormisienta_Entities();
 
 
         public List<PRODUCTO> ListarProductos(EnumFiltroEstado Filtro)

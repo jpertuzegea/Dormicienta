@@ -3,14 +3,16 @@ using DAO_SONOLIENTA.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace BLL_SONOLIENTA
 {
     public class BLL_Categoria
     {
-        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
+        private Dormisienta_Entities bd = new Dormisienta_Entities();
 
         public List<CATEGORIA> ListarCategorias(EnumFiltroEstado Filtro)
         {
@@ -67,13 +69,21 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para crear un Usuario
-        public Boolean GuargarCategoria(CATEGORIA CategoriaModel)
+        public Boolean GuargarCategoria(CATEGORIA Categoria, HttpPostedFileBase file)
         {
-            if (CategoriaModel != null)
+            if (Categoria != null && file != null && file.ContentLength > 0)
             {// si el objeto es diferente de nulo
                 try
                 {
-                    bd.CATEGORIA.Add(CategoriaModel);
+                    byte[] imagenData = null;
+                    using (var FotoCategoria = new BinaryReader(file.InputStream))
+                    {
+                        imagenData = FotoCategoria.ReadBytes(file.ContentLength);
+                    }
+                    Categoria.Imagen = imagenData;
+                    Categoria.ContetType = file.ContentType;
+
+                    bd.CATEGORIA.Add(Categoria);
                     bd.SaveChanges();
                     return true;
                 }
@@ -90,7 +100,7 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para Modificar un Usuario
-        public Boolean ModificarCategoria(CATEGORIA CATEGORIA)
+        public Boolean ModificarCategoria(CATEGORIA CATEGORIA, Boolean ModificarImagen, HttpPostedFileBase file)
         {
             CATEGORIA Categoria = GetCategoriaByCategoriaId(CATEGORIA.CategoriaId);
 
@@ -98,9 +108,19 @@ namespace BLL_SONOLIENTA
             {
                 try
                 {
+                    if (ModificarImagen)
+                    {
+                        byte[] imagenData = null;
+                        using (var FotoCategoria = new BinaryReader(file.InputStream))
+                        {
+                            imagenData = FotoCategoria.ReadBytes(file.ContentLength);
+                        }
+                        Categoria.Imagen = imagenData;
+                        Categoria.ContetType = file.ContentType;
+                    }
+
                     Categoria.Nombre = CATEGORIA.Nombre;
                     Categoria.Descripcion = CATEGORIA.Descripcion;
-                    Categoria.Imagen = CATEGORIA.Imagen;
                     Categoria.Estado = CATEGORIA.Estado;
 
                     bd.Entry(Categoria).State = EntityState.Modified;

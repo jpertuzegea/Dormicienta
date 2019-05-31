@@ -1,5 +1,5 @@
 ﻿using BLL_SONOLIENTA;
-using DAO_SONOLIENTA; 
+using DAO_SONOLIENTA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,23 +14,23 @@ namespace SONOLIENTA.Controllers.Admin
         public ActionResult Index()
         {
             return View();
-        } 
-                
+        }
+
         // POST: Login
         [HttpPost]
-        public ActionResult Index(USUARIO UsuariosModel)
+        public ActionResult Index(USUARIO USUARIO)
         {
             BLL_Login BLL_Login = new BLL_Login();
-            /*  if(BLL_Login.InicarSesion())
-              {// Si las credenciales son correctas
-                  return RedirectToAction("Index", "Inicio");
-              }
-              else
-              {
-                  ViewBag.Mensaje = "Usuario y Clave No Coinciden ";
-                  ViewBag.Acceso = "Acceso Denegado";
-                  return View();
-             }*/
+            if (BLL_Login.InicarSesion(USUARIO))
+            {// Si las credenciales son correctas
+                return RedirectToAction("Index", "Inicio");
+            }
+            else
+            {
+                ViewBag.Mensaje = "Usuario y Clave No Coinciden ";
+                ViewBag.Acceso = "Acceso Denegado";
+                return View();
+            }
             return View();
         }
 
@@ -38,8 +38,8 @@ namespace SONOLIENTA.Controllers.Admin
         public ActionResult CerrarSesion()
         {
             BLL_Login BLL_Login = new BLL_Login();
-          //  BLL_Login.CerrarSesion();
-            return View("Index","Login");
+            BLL_Login.CerrarSesion();
+            return RedirectToAction("Index", "Login"); // direcciona hacia el inicio de sesion
         }
 
     }

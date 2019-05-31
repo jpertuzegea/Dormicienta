@@ -11,7 +11,7 @@ namespace BLL_SONOLIENTA
 {
     public class BLL_Login
     {
-        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
+        private Dormisienta_Entities bd = new Dormisienta_Entities();
 
         public Boolean InicarSesion(USUARIO USUARIO) {
 

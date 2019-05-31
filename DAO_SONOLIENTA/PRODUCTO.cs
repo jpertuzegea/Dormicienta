@@ -22,6 +22,7 @@ namespace DAO_SONOLIENTA
         public Nullable<int> Categotia { get; set; }
         public Nullable<int> CantidadDisponible { get; set; }
         public byte[] Imagen { get; set; }
+        public string ContetType { get; set; }
         public Nullable<byte> Estado { get; set; }
     
         public virtual CATEGORIA CATEGORIA { get; set; }

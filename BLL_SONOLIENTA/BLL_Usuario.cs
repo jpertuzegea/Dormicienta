@@ -10,7 +10,7 @@ namespace BLL_SONOLIENTA
 {
     public class BLL_Usuario
     {
-        private SONOLIENTAEntities bd = new SONOLIENTAEntities();
+        private Dormisienta_Entities bd = new Dormisienta_Entities();
 
         // metodo para listar los Usuarios existentes
         public List<USUARIO> ListUsuarios(EnumFiltroEstado Filtro)
@@ -70,16 +70,19 @@ namespace BLL_SONOLIENTA
         }
 
         // metodo para crear un Usuario
-        public Boolean GuargarUsuario(USUARIO USUARIO)
+        public Boolean GuardarUsuario(USUARIO USUARIO)                     
         {
             if (USUARIO != null)
             {// si el objeto es diferente de nulo
                 try
                 {
                     USUARIO.UsuarioRed = ArmarUsuaroRed(USUARIO.NombreCompleto); // se crea el usuario de red
+                    USUARIO.FechaRegistro = DateTime.Parse(DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss"));
+                    USUARIO.UsuarioRegistra = (int)System.Web.HttpContext.Current.Session["IdUsuarioSonolienta"];
 
                     bd.USUARIO.Add(USUARIO);
                     bd.SaveChanges();
+
                     return true;
                 }
                 catch (Exception Error)
@@ -93,7 +96,7 @@ namespace BLL_SONOLIENTA
                 return false;
             }
         }
-
+                      
         // metodo para Modificar un Usuario
         public Boolean ModificarUsuario(USUARIO USUARIO)
         {
@@ -104,10 +107,14 @@ namespace BLL_SONOLIENTA
                 try
                 {
                     usuarios.NombreCompleto = USUARIO.NombreCompleto;
-                    //usuarios.UsuarioRed = Usuarios_Model.UsuarioRed;// Usuario red nunca se cambia
                     usuarios.Clave = USUARIO.Clave;
                     usuarios.Estado = USUARIO.Estado;
                     usuarios.Telefono = USUARIO.Telefono;
+                    usuarios.Cedula = USUARIO.Cedula;
+
+                    //usuarios.UsuarioRed = Usuarios_Model.UsuarioRed;// Usuario red nunca se cambia
+                    // usuarios.FechaRegistro = USUARIO.FechaRegistro;
+                    // usuarios.UsuarioRegistra = USUARIO.UsuarioRegistra;
 
                     bd.Entry(usuarios).State = EntityState.Modified;
                     bd.SaveChanges();
@@ -130,9 +137,7 @@ namespace BLL_SONOLIENTA
         // Arma un select list de Usuarios, con la propiedad value y name 
         public List<SelectListItem> ArmarSelectUsuarios(EnumFiltroEstado filtro)
         {
-
             List<USUARIO> Lista = Lista = ListUsuarios(filtro);
-
 
             List<SelectListItem> result = new List<SelectListItem>();// se debe importar la dll que esta en el proyecto vista
             foreach (var item in Lista)

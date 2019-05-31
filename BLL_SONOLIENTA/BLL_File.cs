@@ -11,8 +11,6 @@ namespace BLL_SONOLIENTA
 {
     public class BLL_File
     {
-         
-
         // metodo para crear un directorio si no existe
         public Boolean Crear_Directorio(string UrlCompleta)
         {

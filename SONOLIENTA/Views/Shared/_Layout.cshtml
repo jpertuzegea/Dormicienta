@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigecor</title>
+    <title>Dormisienta</title>
 
     <!-- CSS -->
     <link href="~/Plantilla-Ins/css/bootstrap.min.css" rel="stylesheet">
@@ -31,23 +31,14 @@
     <script src="~/Plantilla-Ins/js/inspinia.js"></script>
     <script src="~/Plantilla-Ins/js/plugins/pace/pace.min.js"></script>
 
-    <!-- JS -->
-    <!-- Para el pdf con js -->
-    <script type="text/javascript" src="~/JS_PDF/jspdf.js"></script>
-    <script type="text/javascript" src="~/JS_PDF/jspdf.plugin.addimage.js"></script>
-    <script type="text/javascript" src="~/JS_PDF/jspdf.plugin.standard_fonts_metrics.js"></script>
-    <script type="text/javascript" src="~/JS_PDF/jspdf.plugin.split_text_to_size.js"></script>
-    <script type="text/javascript" src="~/JS_PDF/jspdf.plugin.from_html.js"></script>
-
     <script src="~/Plantilla-Ins/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="~/Plantilla-Ins/js/plugins/dataTables/datatables.min.js"></script>
 
-    <script src="~/Js_Utilidades/Utilidades.js"></script>
-
+    <script src="~/Controllers/Admin/Scripts/Modals.js"></script>
     <!-- Morris -->
     <script src="~/Plantilla-Ins/js/plugins/morris/raphael-2.1.0.min.js"></script>
     <script src="~/Plantilla-Ins/js/plugins/morris/morris.js"></script>
-
+    <script src="~/Controllers/Admin/Scripts/ValidarDobleClic.js"></script>
     <script>
         $(document).ready(function () {
             $('.dataTables-example').DataTable({
@@ -142,15 +133,17 @@
 
                         <ul class="nav nav-second-level collapse">
 
-                            <li>@Html.ActionLink("Usuarios", "index", "Usuarios")</li>
+                            <li>@Html.ActionLink("Usuarios", "index", "Usuario")</li>
 
-                            <li>@Html.ActionLink("Categorias", "index", "Categorias")</li>
+                            <li>@Html.ActionLink("Categorias", "index", "Categoria")</li>
 
-                            <li>@Html.ActionLink("Marcas", "index", "Marcas")</li>
-                            <li>@Html.ActionLink("Productos", "index", "Marcas")</li>
+                            <li>@Html.ActionLink("Marcas", "index", "Marca")</li>
+                            <li>@Html.ActionLink("Productos", "index", "Producto")</li>
+                        </ul>
+                    </li>
 
-                        
-                  
+
+
 
                     <li>
                         <a disabled href="index.html"><i class="fa fa-child"></i> <span class="nav-label">Opciones Especiales</span> <span class="fa arrow"></span></a>

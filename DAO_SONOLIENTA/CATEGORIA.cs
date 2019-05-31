@@ -24,6 +24,7 @@ namespace DAO_SONOLIENTA
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public byte[] Imagen { get; set; }
+        public string ContetType { get; set; }
         public Nullable<byte> Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -16,10 +16,12 @@ namespace DAO_SONOLIENTA
     {
         public int UsuarioId { get; set; }
         public string NombreCompleto { get; set; }
-        public string UsuarioRed { get; set; }
         public string Cedula { get; set; }
+        public string UsuarioRed { get; set; }
         public string Clave { get; set; }
         public string Telefono { get; set; }
+        public System.DateTime FechaRegistro { get; set; }
+        public int UsuarioRegistra { get; set; }
         public Nullable<byte> Estado { get; set; }
     }
 }
