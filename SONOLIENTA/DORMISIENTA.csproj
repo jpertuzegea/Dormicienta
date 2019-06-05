@@ -1551,36 +1551,11 @@
     <Content Include="Plantilla-Ins\js\plugins\validate\jquery.validate.min.js" />
     <Content Include="Plantilla-Ins\js\plugins\video\responsible-video.js" />
     <Content Include="Plantilla-Ins\js\plugins\wow\wow.min.js" />
-    <Content Include="Plantilla\css\animate.css" />
-    <Content Include="Plantilla\css\bootstrap.min.css" />
-    <Content Include="Plantilla\css\font-awesome.min.css" />
-    <Content Include="Plantilla\css\magnific-popup.css" />
-    <Content Include="Plantilla\css\tooplate-style.css" />
-    <Content Include="Plantilla\fonts\fontawesome-webfont.svg" />
-    <Content Include="Plantilla\images\home-bg.jpg" />
-    <Content Include="Plantilla\images\profile-image.jpg" />
-    <Content Include="Plantilla\images\work-image1.jpg" />
-    <Content Include="Plantilla\images\work-image2.jpg" />
-    <Content Include="Plantilla\images\work-image3.jpg" />
-    <Content Include="Plantilla\index.html" />
-    <Content Include="Plantilla\js\bootstrap.min.js" />
-    <Content Include="Plantilla\js\custom.js" />
-    <Content Include="Plantilla\js\jquery.js" />
-    <Content Include="Plantilla\js\jquery.magnific-popup.min.js" />
-    <Content Include="Plantilla\js\jquery.parallax.js" />
-    <Content Include="Plantilla\js\magnific-popup-options.js" />
-    <Content Include="Plantilla\js\smoothscroll.js" />
-    <Content Include="Plantilla\js\wow.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Plantilla\fonts\fontawesome-webfont.eot" />
-    <Content Include="Plantilla\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Plantilla\fonts\fontawesome-webfont.woff" />
-    <Content Include="Plantilla\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Plantilla\fonts\FontAwesome.otf" />
     <Content Include="Plantilla-Ins\css\bootstrap.css.map" />
     <Content Include="Plantilla-Ins\css\bootstrap.min.css.map" />
     <Content Include="Plantilla-Ins\css\plugins\bootstrap-rtl\bootstrap-rtl.css.map" />
@@ -1661,6 +1636,7 @@
     <Content Include="Plantilla-Ins\locales\en.json" />
     <Content Include="Plantilla-Ins\locales\es.json" />
     <Content Include="Plantilla-Ins\pdf\example.pdf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1716,13 +1692,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL_SONOLIENTA\BLL_SONOLIENTA.csproj">
+    <ProjectReference Include="..\BLL_SONOLIENTA\BLL_DORMISIENTA.csproj">
       <Project>{94326bd7-05fa-4ed9-9a22-be61fa682267}</Project>
-      <Name>BLL_SONOLIENTA</Name>
+      <Name>BLL_DORMISIENTA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAO_SONOLIENTA\DAO_SONOLIENTA.csproj">
+    <ProjectReference Include="..\DAO_SONOLIENTA\DAO_DORMISIENTA.csproj">
       <Project>{8D2A57DD-C405-4CB7-B7DE-93FC4966A905}</Project>
-      <Name>DAO_SONOLIENTA</Name>
+      <Name>DAO_DORMISIENTA</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -60,12 +60,13 @@
     <Compile Include="BLL_Producto.cs" />
     <Compile Include="BLL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryString.cs" />
     <Compile Include="Utilidades\FuncionesEnum.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO_SONOLIENTA\DAO_SONOLIENTA.csproj">
+    <ProjectReference Include="..\DAO_SONOLIENTA\DAO_DORMISIENTA.csproj">
       <Project>{8d2a57dd-c405-4cb7-b7de-93fc4966a905}</Project>
-      <Name>DAO_SONOLIENTA</Name>
+      <Name>DAO_DORMISIENTA</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

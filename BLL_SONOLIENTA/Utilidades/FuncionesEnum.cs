@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace BLL_SONOLIENTA.Utilidades
+namespace BLL_DORMISIENTA.Utilidades
 {
     public static class FuncionesEnum
     {

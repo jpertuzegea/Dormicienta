@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SONOLIENTAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DORMISIENTAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CATEGORIA">
           <Key>
             <PropertyRef Name="CategoriaId" />
@@ -66,7 +66,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SONOLIENTAModelStoreContainer">
+        <EntityContainer Name="DORMISIENTAModelStoreContainer">
           <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
@@ -79,13 +79,13 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SONOLIENTAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DORMISIENTAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Dormisienta_Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CATEGORIA" EntityType="SONOLIENTAModel.CATEGORIA" />
-          <EntitySet Name="MARCA" EntityType="SONOLIENTAModel.MARCA" />
-          <EntitySet Name="PRODUCTO" EntityType="SONOLIENTAModel.PRODUCTO" />
-          <EntitySet Name="USUARIO" EntityType="SONOLIENTAModel.USUARIO" />
-          <AssociationSet Name="FK__PRODUCTO__Catego__75A278F5" Association="SONOLIENTAModel.FK__PRODUCTO__Catego__75A278F5">
+          <EntitySet Name="CATEGORIA" EntityType="DORMISIENTAModel.CATEGORIA" />
+          <EntitySet Name="MARCA" EntityType="DORMISIENTAModel.MARCA" />
+          <EntitySet Name="PRODUCTO" EntityType="DORMISIENTAModel.PRODUCTO" />
+          <EntitySet Name="USUARIO" EntityType="DORMISIENTAModel.USUARIO" />
+          <AssociationSet Name="FK__PRODUCTO__Catego__75A278F5" Association="DORMISIENTAModel.FK__PRODUCTO__Catego__75A278F5">
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
@@ -100,7 +100,7 @@
           <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ContetType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Byte" />
-          <NavigationProperty Name="PRODUCTO" Relationship="SONOLIENTAModel.FK__PRODUCTO__Catego__75A278F5" FromRole="CATEGORIA" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__75A278F5" FromRole="CATEGORIA" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="MARCA">
           <Key>
@@ -125,7 +125,7 @@
           <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ContetType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Byte" />
-          <NavigationProperty Name="CATEGORIA" Relationship="SONOLIENTAModel.FK__PRODUCTO__Catego__75A278F5" FromRole="PRODUCTO" ToRole="CATEGORIA" />
+          <NavigationProperty Name="CATEGORIA" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__75A278F5" FromRole="PRODUCTO" ToRole="CATEGORIA" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -142,8 +142,8 @@
           <Property Name="Estado" Type="Byte" />
         </EntityType>
         <Association Name="FK__PRODUCTO__Catego__75A278F5">
-          <End Type="SONOLIENTAModel.CATEGORIA" Role="CATEGORIA" Multiplicity="0..1" />
-          <End Type="SONOLIENTAModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
+          <End Type="DORMISIENTAModel.CATEGORIA" Role="CATEGORIA" Multiplicity="0..1" />
+          <End Type="DORMISIENTAModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CATEGORIA">
               <PropertyRef Name="CategoriaId" />
@@ -158,9 +158,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SONOLIENTAModelStoreContainer" CdmEntityContainer="Dormisienta_Entities">
+        <EntityContainerMapping StorageEntityContainer="DORMISIENTAModelStoreContainer" CdmEntityContainer="Dormisienta_Entities">
           <EntitySetMapping Name="CATEGORIA">
-            <EntityTypeMapping TypeName="SONOLIENTAModel.CATEGORIA">
+            <EntityTypeMapping TypeName="DORMISIENTAModel.CATEGORIA">
               <MappingFragment StoreEntitySet="CATEGORIA">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="ContetType" ColumnName="ContetType" />
@@ -172,7 +172,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MARCA">
-            <EntityTypeMapping TypeName="SONOLIENTAModel.MARCA">
+            <EntityTypeMapping TypeName="DORMISIENTAModel.MARCA">
               <MappingFragment StoreEntitySet="MARCA">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -182,7 +182,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRODUCTO">
-            <EntityTypeMapping TypeName="SONOLIENTAModel.PRODUCTO">
+            <EntityTypeMapping TypeName="DORMISIENTAModel.PRODUCTO">
               <MappingFragment StoreEntitySet="PRODUCTO">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="ContetType" ColumnName="ContetType" />
@@ -198,7 +198,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
-            <EntityTypeMapping TypeName="SONOLIENTAModel.USUARIO">
+            <EntityTypeMapping TypeName="DORMISIENTAModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="UsuarioRegistra" ColumnName="UsuarioRegistra" />

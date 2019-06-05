@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAO_SONOLIENTA.Enum
+namespace DAO_DORMISIENTA.Enum
 {
     public enum EnumFiltroEstado
     {

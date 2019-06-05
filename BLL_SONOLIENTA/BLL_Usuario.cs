@@ -1,12 +1,12 @@
-﻿using DAO_SONOLIENTA;
-using DAO_SONOLIENTA.Enum;
+﻿using DAO_DORMISIENTA;
+using DAO_DORMISIENTA.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace BLL_SONOLIENTA
+namespace BLL_DORMISIENTA
 {
     public class BLL_Usuario
     {
@@ -78,7 +78,7 @@ namespace BLL_SONOLIENTA
                 {
                     USUARIO.UsuarioRed = ArmarUsuaroRed(USUARIO.NombreCompleto); // se crea el usuario de red
                     USUARIO.FechaRegistro = DateTime.Parse(DateTime.Now.ToString("dd/MMM/yyyy HH:mm:ss"));
-                    USUARIO.UsuarioRegistra = (int)System.Web.HttpContext.Current.Session["IdUsuarioSonolienta"];
+                    USUARIO.UsuarioRegistra = (int)System.Web.HttpContext.Current.Session["IdUsuarioDORMISIENTA"];
 
                     bd.USUARIO.Add(USUARIO);
                     bd.SaveChanges();

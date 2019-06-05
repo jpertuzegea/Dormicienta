@@ -1,5 +1,5 @@
-﻿using DAO_SONOLIENTA;
-using DAO_SONOLIENTA.Enum; 
+﻿using DAO_DORMISIENTA;
+using DAO_DORMISIENTA.Enum; 
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL_SONOLIENTA
+namespace BLL_DORMISIENTA
 {
     public class BLL_Marca
     {

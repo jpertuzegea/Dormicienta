@@ -1,5 +1,5 @@
-﻿using DAO_SONOLIENTA;
-using DAO_SONOLIENTA.Enum; 
+﻿using DAO_DORMISIENTA;
+using DAO_DORMISIENTA.Enum; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
 
-namespace BLL_SONOLIENTA
+namespace BLL_DORMISIENTA
 {
     public class BLL_Login
     {
@@ -23,7 +23,7 @@ namespace BLL_SONOLIENTA
 
             if ((usuario != null))
             {
-                System.Web.HttpContext.Current.Session["IdUsuarioSonolienta"] = usuario.UsuarioId;
+                System.Web.HttpContext.Current.Session["IdUsuarioDORMISIENTA"] = usuario.UsuarioId;
                 System.Web.HttpContext.Current.Session["NombreUsuarioRed"] = usuario.UsuarioRed;
                
                 return true;
@@ -35,7 +35,7 @@ namespace BLL_SONOLIENTA
         }
 
         public void CerrarSesion() {
-            System.Web.HttpContext.Current.Session["IdUsuarioSonolienta"] = null;
+            System.Web.HttpContext.Current.Session["IdUsuarioDORMISIENTA"] = null;
             System.Web.HttpContext.Current.Session["NombreUsuarioRed"] = null;
 
             System.Web.HttpContext.Current.Session.Abandon();// destruye los objetos de sesion existentes

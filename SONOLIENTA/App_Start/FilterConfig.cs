@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace SONOLIENTA
+namespace DORMISIENTA
 {
     public class FilterConfig
     {

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace BLL_SONOLIENTA
+namespace BLL_DORMISIENTA
 {
     public class BLL_File
     {
@@ -59,7 +59,7 @@ namespace BLL_SONOLIENTA
                     Directory.CreateDirectory(ruta_logs);// se crea el directorio
 
                     // se crea el archivo
-                    using (StreamWriter mylogs = System.IO.File.AppendText(ruta_logs + "LOGS_SONOLIENTA.txt")) //se crea el archivo
+                    using (StreamWriter mylogs = System.IO.File.AppendText(ruta_logs + "LOGS_DORMISIENTA.txt")) //se crea el archivo
                     {
                         mylogs.Close();
                     }

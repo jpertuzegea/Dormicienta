@@ -1,14 +1,14 @@
-﻿using BLL_SONOLIENTA;
-using BLL_SONOLIENTA.Utilidades;
-using DAO_SONOLIENTA;
-using DAO_SONOLIENTA.Enum;
+﻿using BLL_DORMISIENTA;
+using BLL_DORMISIENTA.Utilidades;
+using DAO_DORMISIENTA;
+using DAO_DORMISIENTA.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SONOLIENTA.Controllers
+namespace DORMISIENTA.Controllers
 {
     public class Categoriacontroller : Controller
     {

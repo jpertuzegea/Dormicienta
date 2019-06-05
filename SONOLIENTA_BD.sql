@@ -1,11 +1,11 @@
-CREATE DATABASE SONOLIENTA;
-USE SONOLIENTA;
+CREATE DATABASE DORMISIENTA;
+USE DORMISIENTA;
 
 /*
-drop table [SONOLIENTA].[dbo].[USUARIO]
-drop table [SONOLIENTA].[dbo].[PRODUCTO]
-drop table [SONOLIENTA].[dbo].[MARCA]
-drop table [SONOLIENTA].[dbo].[CATEGORIA]
+drop table [DORMISIENTA].[dbo].[USUARIO]
+drop table [DORMISIENTA].[dbo].[PRODUCTO]
+drop table [DORMISIENTA].[dbo].[MARCA]
+drop table [DORMISIENTA].[dbo].[CATEGORIA]
 */
 
 
@@ -21,7 +21,7 @@ UsuarioRegistra int not null,
 Estado tinyint,
 PRIMARY KEY (UsuarioId)
 );
-INSERT INTO [SONOLIENTA].[dbo].[USUARIO] VALUES ('Jorge Pertuz', '1065635639', 'jpertuz', '123456789', '3155342264', GETDATE(), 1, 1);
+INSERT INTO [DORMISIENTA].[dbo].[USUARIO] VALUES ('Jorge Pertuz', '1065635639', 'jpertuz', '123456789', '3155342264', GETDATE(), 1, 1);
 
 CREATE TABLE CATEGORIA(
 CategoriaId INT NOT NULL IDENTITY(1,1),

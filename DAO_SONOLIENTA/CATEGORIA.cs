@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAO_SONOLIENTA
+namespace DAO_DORMISIENTA
 {
     using System;
     using System.Collections.Generic;
