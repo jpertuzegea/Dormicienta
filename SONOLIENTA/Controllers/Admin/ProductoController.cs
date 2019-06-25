@@ -136,8 +136,6 @@ namespace DORMISIENTA.Controllers
 
         public ActionResult VerImagen(int ProductoId)
         {
-            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
-
             BLL_Producto BLL_Producto = new BLL_Producto();
             PRODUCTO Producto = BLL_Producto.GetProductoByProductoId(ProductoId);
 

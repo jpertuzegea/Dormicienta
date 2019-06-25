@@ -115,7 +115,7 @@ namespace DORMISIENTA.Controllers
 
         public ActionResult VerImagen(int CategoriaId)
         {
-            BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
+         //   BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             CATEGORIA Categoria = BLL_Categoria.GetCategoriaByCategoriaId(CategoriaId);

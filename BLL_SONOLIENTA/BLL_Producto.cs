@@ -21,20 +21,18 @@ namespace BLL_DORMISIENTA
             List<PRODUCTO> ListProducto = null;
             try
             {
-
-
                 switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Activo).ToList();
+                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Activo).OrderBy(c => c.Categotia).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Inactivo).ToList();
+                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Inactivo).OrderBy(c => c.Categotia).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).ToList();
+                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).OrderBy(c => c.Categotia).ToList();
                         break;
                 }
                 return (ListProducto);// retorna una lista de entidades
