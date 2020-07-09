@@ -1,0 +1,6 @@
+namespace Dormicienta.Areas.HelpPage.ModelDescriptions
+{
+    public class DictionaryModelDescription : KeyValuePairModelDescription
+    {
+    }
+}
