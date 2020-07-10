@@ -10,9 +10,10 @@ using System.Web.Mvc;
 
 namespace Dormicienta.Controllers.Admin
 {
+     
     public class MarcaController : Controller
     {
-        // GET: Marca
+       
         public ActionResult Index()
         {
             BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
@@ -57,7 +58,6 @@ namespace Dormicienta.Controllers.Admin
                 return View(MARCA);
             }
         }
-
 
         //Update
         [HttpGet]

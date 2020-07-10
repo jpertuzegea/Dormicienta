@@ -1,0 +1,51 @@
+﻿
+@model List<DAO_DORMISIENTA.PRODUCTO>
+
+@{
+    ViewBag.Title = "Productos Disponibles";
+}
+
+
+<div align="center" class="modal-header">
+    <b> <h1 style="color:#1ab394"> @ViewBag.Categoria Disponibles</h1></b>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <a data-toggle="modal" href="#myModal2" onclick="DetalleProducto(@item.ProductoId)">
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <img width="170" height="170" alt="image" src="@Url.Action("VerImagen", "Producto", new { ProductoId = item.ProductoId })" />
+                            <div class="product-desc">
+                                <span class="product-price">
+                                    $ @String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0,0}", item.Precio)
+                                </span>
+
+                                <a href="#" class="product-name" style="color:#1ab394"> @item.Nombre  </a>
+                                <small class="text-muted" style="color:black">Codigo: @item.Codigo</small>
+
+                                <div class="small m-t-xs">
+                                    @item.Descripcion
+                                </div>
+
+                                <div class="m-t text-righ">
+                                    <a data-toggle="modal" class="btn btn-xs btn-outline btn-primary" onclick="DetalleProducto(@item.ProductoId)" id="BTNCrearProducto" href="#myModal2">Ver Mas ... </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+    <br />
+
+
+</div>

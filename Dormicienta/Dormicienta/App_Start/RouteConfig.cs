@@ -16,7 +16,7 @@ namespace Dormicienta
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Dormicienta", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Producto", action = "Tienda", id = UrlParameter.Optional }
             );
         }
     }
