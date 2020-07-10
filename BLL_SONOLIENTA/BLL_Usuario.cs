@@ -40,7 +40,7 @@ namespace BLL_DORMISIENTA
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                throw;
+                 return null;
             }
         }
 
@@ -65,7 +65,7 @@ namespace BLL_DORMISIENTA
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                throw;
+                 return null;
             }
         }
 

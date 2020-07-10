@@ -39,7 +39,7 @@ namespace BLL_DORMISIENTA
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                throw;
+                return null;
             }
 
         }
@@ -64,7 +64,7 @@ namespace BLL_DORMISIENTA
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                throw;
+                return null;
             }
         }
 
@@ -108,7 +108,7 @@ namespace BLL_DORMISIENTA
             {
                 try
                 {
-                    if (file != null && file.ContentLength > 0 )
+                    if (file != null && file.ContentLength > 0)
                     {
                         byte[] imagenData = null;
                         using (var FotoCategoria = new BinaryReader(file.InputStream))

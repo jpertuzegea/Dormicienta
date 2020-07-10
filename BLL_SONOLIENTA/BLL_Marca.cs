@@ -1,5 +1,5 @@
 ﻿using DAO_DORMISIENTA;
-using DAO_DORMISIENTA.Enum; 
+using DAO_DORMISIENTA.Enum;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -38,7 +38,7 @@ namespace BLL_DORMISIENTA
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                throw;
+                return null;
             }
 
         }
@@ -48,7 +48,7 @@ namespace BLL_DORMISIENTA
         {
             try
             {
-        MARCA Marca = bd.MARCA.Find(MarcaId);
+                MARCA Marca = bd.MARCA.Find(MarcaId);
 
                 if (Marca != null)
                 {
@@ -63,7 +63,7 @@ namespace BLL_DORMISIENTA
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                throw;
+                return null;
             }
         }
 
@@ -73,7 +73,7 @@ namespace BLL_DORMISIENTA
             if (MARCA != null)
             {// si el objeto es diferente de nulo
                 try
-                {                   
+                {
                     bd.MARCA.Add(MARCA);
                     bd.SaveChanges();
                     return true;

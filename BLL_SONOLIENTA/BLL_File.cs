@@ -25,7 +25,7 @@ namespace BLL_DORMISIENTA
             catch (Exception error)
             {
                 Escribir_Log(error.ToString());
-                throw;
+                 return false;
             }
         }
 
@@ -42,7 +42,7 @@ namespace BLL_DORMISIENTA
             catch (Exception error)
             {
                 BLL_File.Escribir_Log(error.ToString());
-                throw;
+                 return false;
             }
 
         }
@@ -85,7 +85,7 @@ namespace BLL_DORMISIENTA
             }
             catch (Exception e)
             {
-                throw;
+                // return false;
             }
 
         }
