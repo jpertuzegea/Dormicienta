@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAO_DORMISIENTA
+namespace DAO_SONOLIENTA
 {
     using System;
     using System.Data.Entity;
@@ -26,6 +26,7 @@ namespace DAO_DORMISIENTA
         }
     
         public virtual DbSet<CATEGORIA> CATEGORIA { get; set; }
+        public virtual DbSet<CONTACTENOS> CONTACTENOS { get; set; }
         public virtual DbSet<MARCA> MARCA { get; set; }
         public virtual DbSet<PRODUCTO> PRODUCTO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }

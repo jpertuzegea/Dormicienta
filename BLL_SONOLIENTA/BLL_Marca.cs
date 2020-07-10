@@ -1,5 +1,6 @@
 ﻿using DAO_DORMISIENTA;
 using DAO_DORMISIENTA.Enum;
+using DAO_SONOLIENTA;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -40,7 +41,6 @@ namespace BLL_DORMISIENTA
                 BLL_File.Escribir_Log(error.ToString());
                 return null;
             }
-
         }
 
         // metodo para buscar una sola Marca por id

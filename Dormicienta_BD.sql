@@ -55,4 +55,15 @@ Estado tinyint,
 PRIMARY KEY (ProductoId),
 FOREIGN KEY (Categotia) references CATEGORIA(CategoriaId)
 );
+
+CREATE TABLE CONTACTENOS(
+ContactenosId int NOT NULL IDENTITY(1,1),
+NombreSolicitate varchar(150),
+TelefonoSolicitante varchar(30),
+EmailSolicitante varchar(30),
+FechaSolicitud DateTime,
+Asunto varchar(130),
+Mensaje varchar(max),
+PRIMARY KEY (ContactenosId) 
+);
  

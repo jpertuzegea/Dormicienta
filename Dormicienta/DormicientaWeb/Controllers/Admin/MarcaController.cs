@@ -2,6 +2,7 @@
 using BLL_DORMISIENTA.Utilidades;
 using DAO_DORMISIENTA;
 using DAO_DORMISIENTA.Enum;
+using DAO_SONOLIENTA;
 using System;
 using System.Collections.Generic;
 using System.Linq;

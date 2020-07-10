@@ -12,16 +12,14 @@ namespace DAO_SONOLIENTA
     using System;
     using System.Collections.Generic;
     
-    public partial class USUARIO
+    public partial class CONTACTENOS
     {
-        public int UsuarioId { get; set; }
-        public string NombreCompleto { get; set; }
-        public string Cedula { get; set; }
-        public string UsuarioRed { get; set; }
-        public string Clave { get; set; }
-        public string Telefono { get; set; }
-        public System.DateTime FechaRegistro { get; set; }
-        public int UsuarioRegistra { get; set; }
-        public Nullable<byte> Estado { get; set; }
+        public int ContactenosId { get; set; }
+        public string NombreSolicitate { get; set; }
+        public string TelefonoSolicitante { get; set; }
+        public string EmailSolicitante { get; set; }
+        public Nullable<System.DateTime> FechaSolicitud { get; set; }
+        public string Asunto { get; set; }
+        public string Mensaje { get; set; }
     }
 }

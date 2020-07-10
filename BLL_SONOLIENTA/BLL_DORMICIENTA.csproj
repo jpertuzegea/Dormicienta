@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL_Categoria.cs" />
+    <Compile Include="BLL_Contactenos.cs" />
+    <Compile Include="BLL_Email.cs" />
     <Compile Include="BLL_File.cs" />
     <Compile Include="BLL_Login.cs" />
     <Compile Include="BLL_Marca.cs" />

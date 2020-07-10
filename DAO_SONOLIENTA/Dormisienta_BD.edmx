@@ -16,6 +16,18 @@
           <Property Name="ContetType" Type="varchar" MaxLength="50" />
           <Property Name="Estado" Type="tinyint" />
         </EntityType>
+        <EntityType Name="CONTACTENOS">
+          <Key>
+            <PropertyRef Name="ContactenosId" />
+          </Key>
+          <Property Name="ContactenosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreSolicitate" Type="varchar" MaxLength="150" />
+          <Property Name="TelefonoSolicitante" Type="varchar" MaxLength="30" />
+          <Property Name="EmailSolicitante" Type="varchar" MaxLength="30" />
+          <Property Name="FechaSolicitud" Type="datetime" />
+          <Property Name="Asunto" Type="varchar" MaxLength="130" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="MARCA">
           <Key>
             <PropertyRef Name="MarcaId" />
@@ -54,7 +66,7 @@
           <Property Name="UsuarioRegistra" Type="int" Nullable="false" />
           <Property Name="Estado" Type="tinyint" />
         </EntityType>
-        <Association Name="FK__PRODUCTO__Catego__75A278F5">
+        <Association Name="FK__PRODUCTO__Catego__3D5E1FD2">
           <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="0..1" />
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -68,10 +80,11 @@
         </Association>
         <EntityContainer Name="DORMISIENTAModelStoreContainer">
           <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTACTENOS" EntityType="Self.CONTACTENOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__PRODUCTO__Catego__75A278F5" Association="Self.FK__PRODUCTO__Catego__75A278F5">
+          <AssociationSet Name="FK__PRODUCTO__Catego__3D5E1FD2" Association="Self.FK__PRODUCTO__Catego__3D5E1FD2">
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
@@ -82,10 +95,11 @@
       <Schema Namespace="DORMISIENTAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Dormisienta_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORIA" EntityType="DORMISIENTAModel.CATEGORIA" />
+          <EntitySet Name="CONTACTENOS" EntityType="DORMISIENTAModel.CONTACTENOS" />
           <EntitySet Name="MARCA" EntityType="DORMISIENTAModel.MARCA" />
           <EntitySet Name="PRODUCTO" EntityType="DORMISIENTAModel.PRODUCTO" />
           <EntitySet Name="USUARIO" EntityType="DORMISIENTAModel.USUARIO" />
-          <AssociationSet Name="FK__PRODUCTO__Catego__75A278F5" Association="DORMISIENTAModel.FK__PRODUCTO__Catego__75A278F5">
+          <AssociationSet Name="FK__PRODUCTO__Catego__3D5E1FD2" Association="DORMISIENTAModel.FK__PRODUCTO__Catego__3D5E1FD2">
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
@@ -100,7 +114,19 @@
           <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ContetType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Byte" />
-          <NavigationProperty Name="PRODUCTO" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__75A278F5" FromRole="CATEGORIA" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__3D5E1FD2" FromRole="CATEGORIA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="CONTACTENOS">
+          <Key>
+            <PropertyRef Name="ContactenosId" />
+          </Key>
+          <Property Name="ContactenosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreSolicitate" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoSolicitante" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EmailSolicitante" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FechaSolicitud" Type="DateTime" Precision="3" />
+          <Property Name="Asunto" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MARCA">
           <Key>
@@ -125,7 +151,7 @@
           <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ContetType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Byte" />
-          <NavigationProperty Name="CATEGORIA" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__75A278F5" FromRole="PRODUCTO" ToRole="CATEGORIA" />
+          <NavigationProperty Name="CATEGORIA" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__3D5E1FD2" FromRole="PRODUCTO" ToRole="CATEGORIA" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -141,7 +167,7 @@
           <Property Name="UsuarioRegistra" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Byte" />
         </EntityType>
-        <Association Name="FK__PRODUCTO__Catego__75A278F5">
+        <Association Name="FK__PRODUCTO__Catego__3D5E1FD2">
           <End Type="DORMISIENTAModel.CATEGORIA" Role="CATEGORIA" Multiplicity="0..1" />
           <End Type="DORMISIENTAModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -168,6 +194,19 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTACTENOS">
+            <EntityTypeMapping TypeName="DORMISIENTAModel.CONTACTENOS">
+              <MappingFragment StoreEntitySet="CONTACTENOS">
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="EmailSolicitante" ColumnName="EmailSolicitante" />
+                <ScalarProperty Name="TelefonoSolicitante" ColumnName="TelefonoSolicitante" />
+                <ScalarProperty Name="NombreSolicitate" ColumnName="NombreSolicitate" />
+                <ScalarProperty Name="ContactenosId" ColumnName="ContactenosId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

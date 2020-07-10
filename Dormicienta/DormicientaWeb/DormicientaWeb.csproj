@@ -1688,6 +1688,7 @@
     <Content Include="Views\Usuario\UsuarioUpdt.cshtml" />
     <Content Include="Views\Tienda\Index.cshtml" />
     <Content Include="Views\Contactenos\Index.cshtml" />
+    <Content Include="Views\Contactenos\Mensajes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

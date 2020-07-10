@@ -1,10 +1,10 @@
-﻿@model DAO_DORMISIENTA.MARCA
+﻿@model DAO_SONOLIENTA.CONTACTENOS
 
 @{
     Layout = null;
 }
 
-@using (Html.BeginForm("Index", "Contactenos", FormMethod.Post, new { onsubmit = "return  validar_doble_clic()", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Index", "Contactenos", FormMethod.Post, new { onsubmit = "return  validar_doble_clic()"}))
 { // el return indica que la accion del formulario llega false cuando ya le han dado clic una vez
 
     @Html.AntiForgeryToken()
@@ -19,29 +19,27 @@
                 <h3 class="m-t-none m-b"></h3>
 
                 <div class="form-group">
-                    <label>Nombre Solicitante</label>
-                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
+                    <label>Nombre Completo</label>
+                    @Html.EditorFor(model => model.NombreSolicitate, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
                 </div>
 
                 <div class="form-group">
                     <label>Telefono Contacto</label>
-                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
+                    @Html.EditorFor(model => model.TelefonoSolicitante, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
                 </div>
                 <div class="form-group">
                     <label>Email Contacto</label>
-                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
+                    @Html.EditorFor(model => model.EmailSolicitante, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
                 </div>
 
                 <div class="form-group">
                     <label>Asunto </label>
-                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
-
+                    @Html.EditorFor(model => model.Asunto, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
                 </div>
 
                 <div class="form-group">
-                    <label>Descripcion </label>
-                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control" } })
-
+                    <label>Mensaje </label>
+                    @Html.TextArea("Mensaje", null, new { @class = "form-control", @onkeyup = "UpperCase(this)", @rows = "4" }) 
                 </div>
 
             </div>
