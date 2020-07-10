@@ -167,6 +167,7 @@
     <Compile Include="Controllers\Admin\LoginController.cs" />
     <Compile Include="Controllers\Admin\MarcaController.cs" />
     <Compile Include="Controllers\Admin\ProductoController.cs" />
+    <Compile Include="Controllers\Admin\TiendaController.cs" />
     <Compile Include="Controllers\Admin\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1680,11 +1681,11 @@
     <Content Include="Views\Producto\Index.cshtml" />
     <Content Include="Views\Producto\ProductoAdd.cshtml" />
     <Content Include="Views\Producto\ProductoUpdt.cshtml" />
-    <Content Include="Views\Producto\Tienda.cshtml" />
     <Content Include="Views\Producto\DetalleProducto.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\UsuarioAdd.cshtml" />
     <Content Include="Views\Usuario\UsuarioUpdt.cshtml" />
+    <Content Include="Views\Tienda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

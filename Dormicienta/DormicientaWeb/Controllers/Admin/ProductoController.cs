@@ -130,21 +130,6 @@ namespace DormicientaWeb.Controllers.Admin
             }
         }
 
-        public ActionResult Tienda(string Categoria)
-        {
-            if (Categoria == null)
-            {
-                BLL_Categoria BLL_Categoria = new BLL_Categoria();
-                Categoria = BLL_Categoria.ListarCategorias(EnumFiltroEstado.Activo).FirstOrDefault().Nombre;
-            }
-
-            BLL_Producto BLL_Producto = new BLL_Producto();
-            List<PRODUCTO> Producto = BLL_Producto.ListarProductos(EnumFiltroEstado.Activo);
-            Producto.Where(x => x.CATEGORIA.Nombre == Categoria);
-            ViewBag.Categoria = Categoria;
-            return View(Producto);
-        }
-
         [HttpGet]
         public ActionResult DetalleProducto(int id)
         {

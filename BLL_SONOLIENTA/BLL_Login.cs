@@ -46,7 +46,7 @@ namespace BLL_DORMISIENTA
         // Metodo que valida si existe una sesion activa
         public static void VerificarSesionActiva()
         {
-            String NombreUsuarioRed = (String)System.Web.HttpContext.Current.Session["NombreUsuarioRed"];// se captura la variable de sesion con la que se validara que el usuario este logueado 
+            string NombreUsuarioRed = (string)System.Web.HttpContext.Current.Session["NombreUsuarioRed"];// se captura la variable de sesion con la que se validara que el usuario este logueado 
 
             if (NombreUsuarioRed != null)// si se poden las 2 condiciones en el mismo if se explota porque la 2° siempre llega nula
             { // si esta condicion se cumple el usuario es dirigido al Login

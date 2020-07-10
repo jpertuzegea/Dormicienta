@@ -75,7 +75,7 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <a href="@Url.Action("Index", "Inicio" )" title="Inicio" class="links">
+                            <a href="@Url.Action("Index", "Inicio")" title="Inicio" class="links">
                                 <span>
                                     <img alt="image" class="img-circle" src="~/Imagenes/perfil.jpg" />
                                     @*<img  width="70" height="70" alt="image" class="img-circle" src="@Url.Action("VerImagen", "Categoria", new { CategoriaId = 5})" />*@
@@ -85,43 +85,49 @@
                                 <span class="clear">
                                     <span class="block m-t-xs">
                                         <strong class="font-bold">@Session["nombre_usuario_sigecor"]</strong>
-                                    </span> <span class="text-muted text-xs block">Administrador <b class="caret"></b></span>
+                                    </span> <span class="text-muted text-xs block">DORMICIENTA <b class="caret"></b></span>
                                 </span>
                             </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="profile.html">Profile</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="mailbox.html">Mailbox</a></li>
-                                <li class="divider"></li>
-                                <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Login")</li>
-                            </ul>
+                            @*<ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="profile.html">Profile</a></li>
+                                    <li><a href="contacts.html">Contacts</a></li>
+                                    <li><a href="mailbox.html">Mailbox</a></li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Login")</li>
+                                </ul>*@
                         </div>
                         <div class="logo-element">
                             IN+
                         </div>
                     </li>
 
-                    <li>
-                        <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Administracion</span> <span class="fa arrow"></span></a>
+                    @{
+                        string NombreUsuarioRed = (string)System.Web.HttpContext.Current.Session["NombreUsuarioRed"];
+                        if (NombreUsuarioRed != null)// si se poden las 2 condiciones en el mismo if se explota porque la 2° siempre llega nula
+                        {
+                            <li>
+                                <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label">Administracion</span> <span class="fa arrow"></span></a>
 
-                        <ul class="nav nav-second-level collapse">
+                                <ul class="nav nav-second-level collapse">
 
-                            <li>@Html.ActionLink("Usuarios", "index", "Usuario")</li>
+                                    <li>@Html.ActionLink("Usuarios", "index", "Usuario")</li>
 
-                            <li>@Html.ActionLink("Categorias", "index", "Categoria")</li>
+                                    <li>@Html.ActionLink("Categorias", "index", "Categoria")</li>
 
-                            <li>@Html.ActionLink("Marcas", "index", "Marca")</li>
-                            <li>@Html.ActionLink("Productos", "index", "Producto")</li>
-                        </ul>
-                    </li>
+                                    <li>@Html.ActionLink("Marcas", "index", "Marca")</li>
+                                    <li>@Html.ActionLink("Productos", "index", "Producto")</li>
+                                </ul>
+                            </li>
+                        }
 
+                    }
 
                     <li>
                         <a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Tienda</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li>@Html.ActionLink("Gorros Quirurgicos", "Tienda", "Producto", new { Categoria = "Gorros" }, null)</li>
-                            <li>@Html.ActionLink("Uniformes Quirurgicos", "Tienda", "Producto", new { Categoria = "Uniformes Quirurgicos" }, null)</li>
-                            <li>@Html.ActionLink("Bolsos", "Tienda", "Producto", new { Categoria = "Bolsos" }, null)</li>
+                            <li>@Html.ActionLink("Gorros Quirurgicos", "Index", "Tienda", new { Categoria = "Gorros" }, null)</li>
+                            <li>@Html.ActionLink("Uniformes Quirurgicos", "Index", "Tienda", new { Categoria = "Uniformes Quirurgicos" }, null)</li>
+                            <li>@Html.ActionLink("Bolsos", "Index", "Tienda", new { Categoria = "Bolsos" }, null)</li>
                         </ul>
                     </li>
 
@@ -178,61 +184,9 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Bienvenido al <FONT COLOR="#1ab394">.:Sistema Dormicienta:.</FONT> </span>
+                            <span class="m-r-sm text-muted welcome-message">Bienvenido a la Tienda <b><FONT COLOR="#1ab394">.:Dormicienta:.</FONT></b> </span>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-messages">
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a7.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <small class="pull-right">46h ago</small>
-                                            <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a4.jpg">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="pull-right text-navy">5h ago</small>
-                                            <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/profile.jpg">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="pull-right">23h ago</small>
-                                            <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
-                                            <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="mailbox.html">
-                                            <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+
                         @*
                             <li class="dropdown">
                                 <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -282,93 +236,95 @@
                                 <img width="40" height="30" src="~/Imagenes/LogoSigecor.png" />
                             </a>
 
-                            <ul class="dropdown-menu dropdown-alerts">
-                                <li>
-                                    <div class="feed-element">
-                                        <a href="#" class="pull-left">
-                                            <img alt="image" class="img-circle" width="250" height="200" src="~/Imagenes/LogoSigecor.png">
-                                        </a>
-                                        <div class="media-body ">
-                                            @*<small class="pull-right">46h ago</small>*@
-                                            El Aplicativo <strong> SIGECOR </strong>. <br>
-                                            <small class="text-muted">Fue Diseñado y Creado Por :</small>
-                                        </div>
-                                    </div>
-                                    <div class="contact-box">
-                                        <a href="https://www.facebook.com/jorgedavid.pertuzegea" target="_blank">
-                                            <div class="text-center">
-                                                <strong>Ingeniero de Sistemas</strong>. <br>
-                                                <small class="text-muted">Jorge David Pertuz Egea.</small>
+                            @*<ul class="dropdown-menu dropdown-alerts">
+                                    <li>
+                                        <div class="feed-element">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" width="250" height="200" src="~/Imagenes/LogoSigecor.png">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right">46h ago</small>
+                                                El Aplicativo <strong> SIGECOR </strong>. <br>
+                                                <small class="text-muted">Fue Diseñado y Creado Por :</small>
                                             </div>
-                                            <br />
-                                            <div class="col-sm-8">
+                                        </div>
+                                        <div class="contact-box">
+                                            <a href="https://www.facebook.com/jorgedavid.pertuzegea" target="_blank">
                                                 <div class="text-center">
-                                                    <img width="220" height="200" class="img-circle" src="~/Imagenes/2.jpeg" />
+                                                    <strong>Ingeniero de Sistemas</strong>. <br>
+                                                    <small class="text-muted">Jorge David Pertuz Egea.</small>
                                                 </div>
                                                 <br />
-                                                <div class="text-center">
-                                                    <img width="40" height="30" src="~/Imagenes/facebook.png" />
+                                                <div class="col-sm-8">
+                                                    <div class="text-center">
+                                                        <img width="220" height="200" class="img-circle" src="~/Imagenes/2.jpeg" />
+                                                    </div>
+                                                    <br />
+                                                    <div class="text-center">
+                                                        <img width="40" height="30" src="~/Imagenes/facebook.png" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-
-                            </ul>
+                                                <div class="clearfix">
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>*@
                         </li>
                         <li>
-                        <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Login")</li>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                            @if (NombreUsuarioRed != null)// si se poden las 2 condiciones en el mismo if se explota porque la 2° siempre llega nula
+                            {
+                            <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Login")</li>
+                        }
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
 
-            @RenderBody()
+                @RenderBody()
 
-            <div id="area">
+                <div id="area">
 
-            </div>
+                </div>
 
-            @*estructura vacia del modal*@
-            <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-                <div class="modal-dialog">
-                    <div class="modal-content animated flipInY">
-                        <div id="contenido">
+                @*estructura vacia del modal*@
+                <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content animated flipInY">
+                            <div id="contenido">
 
 
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                @*<div class="footer">
+                        <div class="pull-right">
+                            10GB of <strong>250GB</strong> Free.
+                        </div>
+                        <div>
+                            <strong>Copyright</strong> Example Company &copy; 2014-2017
+                        </div>
+                    </div>*@
+
+                <div class="footer">
+
+                    <!--<div class="pull-right">
+                     10GB of <strong>250GB</strong> Free.
+                     </div>
+
+                     <div>
+                      <strong>Copyright</strong> Example Company &copy; 2014-2015
+                      </div>-->
+
+                    <a href="@Url.Action("Index", "Inicio" )" title="Inicio" class="links">
+                        <div align="center"><img src="~/Imagenes/footer.png" alt="" /></div>
+                    </a>
+                </div>
+
             </div>
-
-            @*<div class="footer">
-                    <div class="pull-right">
-                        10GB of <strong>250GB</strong> Free.
-                    </div>
-                    <div>
-                        <strong>Copyright</strong> Example Company &copy; 2014-2017
-                    </div>
-                </div>*@
-
-            <div class="footer">
-
-                <!--<div class="pull-right">
-                 10GB of <strong>250GB</strong> Free.
-                 </div>
-
-                 <div>
-                  <strong>Copyright</strong> Example Company &copy; 2014-2015
-                  </div>-->
-
-                <a href="@Url.Action("Index", "Inicio" )" title="Inicio" class="links">
-                    <div align="center"><img src="~/Imagenes/footer.png" alt="" /></div>
-                </a>
-            </div>
-
         </div>
-    </div>
 
-</body>
+    </body>
 </html>

@@ -23,6 +23,11 @@
                 <h3 class="m-t-none m-b"></h3>
 
                 <div class="form-group">
+                    <label>Categoria </label>
+                    @Html.EditorFor(model => model.CATEGORIA.Nombre, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
+                </div>
+
+                <div class="form-group">
                     <label>Nombre </label>
                     @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
                 </div>
@@ -33,36 +38,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Descripcion </label>
-                    @Html.TextArea("Descripcion", null, new { @class = "form-control", @onkeyup = "UpperCase(this)", @rows = "4", @disabled = true })
-                </div>
+                    <label>Precio </label>
+                    <input type="text" class="form-control" disabled="true" value="$ @String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0,0}", Model.Precio)" />
+
+                 </div>
 
             </div>
             <div class="col-sm-6 ">
                 <br>
+                 
                 <div class="form-group">
-                    <label>Precio </label>
-                    @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
+                    <label>Descripcion </label>
+                    @Html.TextArea("Descripcion", null, new { @class = "form-control", @onkeyup = "UpperCase(this)", @rows = "4", @disabled = true })
                 </div>
-
-                <div class="form-group">
-                    <label>Categoria </label>
-                    @Html.EditorFor(model => model.CATEGORIA.Nombre, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
-                </div>
-
-                <div class="form-group">
-                    <label>Categoria </label>
-                    @Html.EditorFor(model => model.CATEGORIA.Nombre, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
-                </div> 
 
                 <hr />
-                <div class="form-group">
+                <h3> Pedidos </h3
+>
+                <div class="form-group" style="color:#1ab394">
                     <img width="40" height="30" src="~/Imagenes/Email.jpg" />  @ViewBag.CorreoContacto
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="color:#1ab394">
                     <img width="40" height="40" src="~/Imagenes/WhatsApp.png" />  @ViewBag.TelefonoContacto
                 </div>
+
+
 
             </div>
 
@@ -72,6 +73,6 @@
     </div>
 
     <div class="modal-footer">
-        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="BotonRegistrar" type="submit"><strong>Matricularse</strong></button>
+        @*<button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="BotonRegistrar" type="submit"><strong>Matricularse</strong></button>*@
     </div>
 }
