@@ -7,18 +7,26 @@
 
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <br>
-        <a data-toggle="modal" class="btn btn-primary" onclick="Contactenos()" id="BTNContactenos" href="#myModal2">Contactenos</a>
-    </div>
+    <div class="row">
 
-    <div class="col-lg-2">
+        <div class="col-lg-1">
+            <br>
+            <a data-toggle="modal" class="btn btn-primary" onclick="Contactenos()" id="BTNContactenos" href="#myModal2">Contactenos</a>
+        </div>
+
+        <div class="col-lg-10">
+            <div align="center">
+                <h1 style="color:#1ab394"> @ViewBag.Categoria Disponibles</h1>
+            </div>
+        </div>
+        <div class="col-lg-1">
+           
+        </div>
     </div>
 </div>
 
-<div align="center" class="modal-header">
-    <b> <h1 style="color:#1ab394"> @ViewBag.Categoria Disponibles</h1></b>
-</div>
+
+
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -42,8 +50,8 @@
                                 <small class="text-muted" style="color:black">Codigo: @item.Codigo</small>
 
                                 @*<div class="small m-t-xs">
-                                    @item.Descripcion
-                                </div>*@
+                                        @item.Descripcion
+                                    </div>*@
 
                                 <div class="m-t text-righ">
                                     <a data-toggle="modal" class="btn btn-xs btn-outline btn-primary" onclick="DetalleProducto(@item.ProductoId)" id="BTNCrearProducto" href="#myModal2">Ver Mas ... </a>
