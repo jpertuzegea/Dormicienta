@@ -37,3 +37,7 @@ function DetalleProducto(id) {
 } 
 // -------- fin Marca --------
 
+// -------- inicio Contactenos --------
+function Contactenos() {
+    $("#contenido").load("/Contactenos/Index");
+}

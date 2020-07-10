@@ -37,7 +37,7 @@ namespace DormicientaWeb.Controllers.Admin
         {
             BLL_Login BLL_Login = new BLL_Login();
             BLL_Login.CerrarSesion();
-            return RedirectToAction("Index", "Login"); // direcciona hacia el inicio de sesion
+            return RedirectToAction("Index", "Tienda"); // direcciona hacia el inicio de sesion
         }
 
     }
