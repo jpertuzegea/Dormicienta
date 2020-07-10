@@ -4,6 +4,7 @@ using DAO_DORMISIENTA;
 using DAO_DORMISIENTA.Enum;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -154,6 +155,8 @@ namespace Dormicienta.Controllers.Admin
             BLL_Categoria BLL_Categoria = new BLL_Categoria();
             List<SelectListItem> lista = BLL_Categoria.ArmarSelectCategorias(EnumFiltroEstado.Activo);
             ViewBag.Categoria = new SelectList(lista, "Value", "Text", Producto.Categotia);
+            ViewBag.CorreoContacto = ConfigurationManager.AppSettings.Get("CorreoContacto");
+            ViewBag.TelefonoContacto = ConfigurationManager.AppSettings.Get("TelefonoContacto");
             return View(Producto);
         }
 

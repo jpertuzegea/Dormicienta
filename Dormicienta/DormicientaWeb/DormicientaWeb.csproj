@@ -190,12 +190,14 @@
     <Content Include="Imagenes\4.png" />
     <Content Include="Imagenes\5.png" />
     <Content Include="Imagenes\areas.jpg" />
+    <Content Include="Imagenes\Email.jpg" />
     <Content Include="Imagenes\facebook.png" />
     <Content Include="Imagenes\fondo.png" />
     <Content Include="Imagenes\footer.png" />
     <Content Include="Imagenes\LogoSigecor.png" />
     <Content Include="Imagenes\pavicon.png" />
     <Content Include="Imagenes\perfil.jpg" />
+    <Content Include="Imagenes\WhatsApp.png" />
     <Content Include="Plantilla-Ins\css\animate.css" />
     <Content Include="Plantilla-Ins\css\bootstrap.css" />
     <Content Include="Plantilla-Ins\css\bootstrap.min.css" />

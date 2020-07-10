@@ -9,12 +9,16 @@
     <h4 style="color:#1ab394" class="modal-title">Detalles del Producto</h4>
 </div>
 
-
 @using (Html.BeginForm("ProductoUpdt", "Producto", FormMethod.Post, new { onsubmit = "return  ValidarDobleClic()", enctype = "multipart/form-data" }))
 { // el return indica que la accion del formulario llega false cuando ya le han dado clic una vez
 
     <div class="modal-body">
         <div class="row">
+
+            <div class="form-group" align="center">
+                <img width="350" height="350" src="@Url.Action("VerImagen", "Producto", new { ProductoId = Model.ProductoId })" />
+            </div>
+
             <div class="col-sm-6 b-r">
                 <h3 class="m-t-none m-b"></h3>
 
@@ -33,6 +37,9 @@
                     @Html.TextArea("Descripcion", null, new { @class = "form-control", @onkeyup = "UpperCase(this)", @rows = "4", @disabled = true })
                 </div>
 
+            </div>
+            <div class="col-sm-6 ">
+                <br>
                 <div class="form-group">
                     <label>Precio </label>
                     @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
@@ -43,17 +50,23 @@
                     @Html.EditorFor(model => model.CATEGORIA.Nombre, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
                 </div>
 
-            </div>
-            <div class="col-sm-6 ">
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <div class="form-group" align="center">
-                    <img width="250" height="250" src="@Url.Action("VerImagen", "Producto", new { ProductoId = Model.ProductoId })" />
+                <div class="form-group">
+                    <label>Categoria </label>
+                    @Html.EditorFor(model => model.CATEGORIA.Nombre, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
+                </div> 
+
+                <hr />
+                <div class="form-group">
+                    <img width="40" height="30" src="~/Imagenes/Email.jpg" />  @ViewBag.CorreoContacto
                 </div>
+
+                <div class="form-group">
+                    <img width="60" height="50" src="~/Imagenes/WhatsApp.png" />  @ViewBag.TelefonoContacto
+                </div>
+
             </div>
+
+
             <div class="col-sm-4 ">      </div>
         </div>
     </div>
