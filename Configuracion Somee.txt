@@ -1,0 +1,18 @@
+
+
+------------------------------
+FTP
+Servidor: DORMICIENTA.somee.com
+Usuario: Dormicienta
+Clave:39590321.....
+------------------------------
+
+Server Hosting
+Usuario: Dormicienta
+Clave:39590321.....
+------------------------------
+
+BD
+Server: DORMISIENTA.mssql.somee.com
+Usuario: Dormicienta_SQLLogin_1
+Clave: lid4fdohqc

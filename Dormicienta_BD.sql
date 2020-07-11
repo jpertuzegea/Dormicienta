@@ -8,7 +8,6 @@ drop table [DORMISIENTA].[dbo].[MARCA]
 drop table [DORMISIENTA].[dbo].[CATEGORIA]
 */
 
-
 CREATE TABLE USUARIO(
 UsuarioId INT NOT NULL IDENTITY(1,1),
 NombreCompleto VARCHAR(70),
@@ -26,7 +25,7 @@ INSERT INTO [DORMISIENTA].[dbo].[USUARIO] VALUES ('Jorge Pertuz', '1065635639', 
 CREATE TABLE CATEGORIA(
 CategoriaId INT NOT NULL IDENTITY(1,1),
 Nombre varchar(70),
-Descripcion varchar(150),
+Descripcion varchar(max),
 Imagen varbinary(max),
 ContetType Varchar(50),
 Estado tinyint,
@@ -36,7 +35,7 @@ PRIMARY KEY (CategoriaId)
 CREATE TABLE MARCA(
 MarcaId int NOT NULL IDENTITY(1,1),
 Nombre varchar(70),
-Descripcion varchar(150),
+Descripcion varchar(max),
 Estado tinyint,
 PRIMARY KEY (MarcaId)
 );
@@ -45,7 +44,7 @@ CREATE TABLE PRODUCTO(
 ProductoId int NOT NULL IDENTITY(1,1),
 Nombre varchar(150),
 Codigo varchar(30),
-Descripcion varchar(240),
+Descripcion varchar(max),
 Precio int,
 Categotia int,
 CantidadDisponible int,

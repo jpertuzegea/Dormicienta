@@ -36,7 +36,7 @@
 
                 <div class="form-group">
                     <label>Descripcion</label>
-                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextArea("Descripcion", null, new { @class = "form-control", @rows = "4" })
                 </div>
 
             </div>

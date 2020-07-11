@@ -124,18 +124,12 @@
                     }
 
                     <li>
-                        <a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Tienda</span> <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>@Html.ActionLink("Gorros Quirurgicos", "Index", "Tienda", new { Categoria = "Gorros" }, null)</li>
-                            @*<li>@Html.ActionLink("Uniformes Quirurgicos", "Index", "Tienda", new { Categoria = "Uniformes Quirurgicos" }, null)</li>
-                            <li>@Html.ActionLink("Bolsos", "Index", "Tienda", new { Categoria = "Bolsos" }, null)</li>*@
-                        </ul>
+                        <a href="/Tienda/index?CategoriaId=1"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Hombre</span> <span class="fa arrow"></span></a>
                     </li>
-                  
 
-
-
-
+                    <li>
+                        <a href="/Tienda/index?CategoriaId=2"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Mujer</span> <span class="fa arrow"></span></a>
+                    </li> 
 
                     @*<li>
         <a disabled href="index.html"><i class="fa fa-child"></i> <span class="nav-label">Opciones Especiales</span> <span class="fa arrow"></span></a>

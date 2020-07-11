@@ -186,15 +186,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Imagenes\1.jpg" />
-    <Content Include="Imagenes\2.JPEG" />
-    <Content Include="Imagenes\3.png" />
-    <Content Include="Imagenes\4.png" />
-    <Content Include="Imagenes\5.png" />
     <Content Include="Imagenes\areas.jpg" />
     <Content Include="Imagenes\Email.jpg" />
+    <Content Include="Imagenes\Email_Icon.jpg" />
     <Content Include="Imagenes\facebook.png" />
-    <Content Include="Imagenes\fondo.png" />
     <Content Include="Imagenes\footer.png" />
     <Content Include="Imagenes\LogoSigecor.png" />
     <Content Include="Imagenes\pavicon.png" />

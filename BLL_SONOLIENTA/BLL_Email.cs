@@ -34,6 +34,7 @@ namespace BLL_SONOLIENTA
             System.Net.Mail.MailMessage mensaje = new System.Net.Mail.MailMessage();
 
             //Direccion de correo electronico a la que queremos enviar el mensaje
+            mensaje.To.Add("pagasoft_pe@hotmail.com");
             mensaje.To.Add(EmailDestino);
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 

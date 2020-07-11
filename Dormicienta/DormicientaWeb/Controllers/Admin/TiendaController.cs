@@ -13,17 +13,17 @@ namespace DormicientaWeb.Controllers.Admin
     public class TiendaController : Controller
     { // GET: Tienda
 
-        public ActionResult Index(string Categoria)
+        public ActionResult Index(string CategoriaId)
         {
-            if (Categoria == null)
+            int Categoria = 1;
+            if (CategoriaId != null)
             {
-                BLL_Categoria BLL_Categoria = new BLL_Categoria();
-                Categoria = BLL_Categoria.ListarCategorias(EnumFiltroEstado.Activo).FirstOrDefault().Nombre;
+                Categoria = Int32.Parse(CategoriaId);
             }
 
             BLL_Producto BLL_Producto = new BLL_Producto();
-            List<PRODUCTO> Producto = BLL_Producto.ListarProductos(EnumFiltroEstado.Activo);
-            Producto.Where(x => x.CATEGORIA.Nombre == Categoria);
+            List<PRODUCTO> Producto = BLL_Producto.ListarProductos(EnumFiltroEstado.Activo).Where(x => x.CATEGORIA.CategoriaId == Categoria).ToList();
+
             ViewBag.Categoria = Categoria;
             return View(Producto);
         }
