@@ -14,7 +14,7 @@ namespace BLL_DORMISIENTA
     {
         private Dormisienta_Entities bd = new Dormisienta_Entities();
 
-        public Boolean InicarSesion(USUARIO USUARIO) {
+        public bool InicarSesion(USUARIO USUARIO) {
 
             USUARIO usuario = bd.USUARIO.Where(u => u.UsuarioRed.ToUpper().Equals(USUARIO.UsuarioRed.ToUpper())
                &&

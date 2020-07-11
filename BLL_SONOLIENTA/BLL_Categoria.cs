@@ -70,7 +70,7 @@ namespace BLL_DORMISIENTA
         }
 
         // metodo para crear un Usuario
-        public Boolean GuargarCategoria(CATEGORIA Categoria, HttpPostedFileBase file)
+        public bool GuargarCategoria(CATEGORIA Categoria, HttpPostedFileBase file)
         {
             if (Categoria != null && file != null && file.ContentLength > 0)
             {// si el objeto es diferente de nulo
@@ -101,7 +101,7 @@ namespace BLL_DORMISIENTA
         }
 
         // metodo para Modificar un Usuario
-        public Boolean ModificarCategoria(CATEGORIA CATEGORIA, HttpPostedFileBase file)
+        public bool ModificarCategoria(CATEGORIA CATEGORIA, HttpPostedFileBase file)
         {
             CATEGORIA Categoria = GetCategoriaByCategoriaId(CATEGORIA.CategoriaId);
 

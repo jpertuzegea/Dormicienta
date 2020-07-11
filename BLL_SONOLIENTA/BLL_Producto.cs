@@ -15,34 +15,62 @@ namespace BLL_DORMISIENTA
     public class BLL_Producto
     {
         private Dormisienta_Entities bd = new Dormisienta_Entities();
+        public static List<PRODUCTO> ListProducto = null;
+
+        public BLL_Producto()
+        {
+            bd = new Dormisienta_Entities();
+            if (ListProducto == null)
+            {
+                ListProducto = ListarProductos(EnumFiltroEstado.Todos);
+            }
+        }
+
 
 
         public List<PRODUCTO> ListarProductos(EnumFiltroEstado Filtro)
         {
-            List<PRODUCTO> ListProducto = null;
+            List<PRODUCTO> List = null;
             try
             {
                 switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Activo).OrderBy(c => c.Categotia).ToList();
+                        List = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Activo).OrderBy(c => c.Categotia).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).Where(c => c.Estado == (byte)EnumEstados.Inactivo).OrderBy(c => c.Categotia).ToList();
+                        List = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Inactivo).OrderBy(c => c.Categotia).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        ListProducto = bd.PRODUCTO.Include(c => c.CATEGORIA).OrderBy(c => c.Categotia).ToList();
+                        List = bd.PRODUCTO.OrderBy(c => c.Categotia).ToList(); 
+                        ListProducto = List;
                         break;
                 }
+                return (List);// retorna una lista de entidades
+            }
+            catch (Exception error)
+            {
+                //bd.Dispose();// cierra la conexion de BD
+                BLL_File.Escribir_Log(error.ToString());
+                return null;
+            }
+        }
+        public List<PRODUCTO> ListarProductosPorCategoriaId(int CategoriaId)
+        {
+            List<PRODUCTO> ListProducto = null;
+            try
+            {
+                ListProducto =   bd.PRODUCTO.Where(c => c.Categotia == CategoriaId && c.Estado == (byte)EnumEstados.Activo).ToList();
+
                 return (ListProducto);// retorna una lista de entidades
             }
             catch (Exception error)
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                 return null;
+                return null;
             }
         }
 
@@ -66,12 +94,12 @@ namespace BLL_DORMISIENTA
             {
                 //bd.Dispose();// cierra la conexion de BD
                 BLL_File.Escribir_Log(error.ToString());
-                 return null;
+                return null;
             }
         }
 
         // metodo para crear un Producto
-        public Boolean GuargarProducto(PRODUCTO Producto, HttpPostedFileBase file)
+        public bool GuargarProducto(PRODUCTO Producto, HttpPostedFileBase file)
         {
             if (Producto != null)
             {// si el objeto es diferente de nulo
@@ -102,7 +130,7 @@ namespace BLL_DORMISIENTA
         }
 
         // metodo para Modificar un Producto
-        public Boolean ModificarProducto(PRODUCTO PRODUCTO, HttpPostedFileBase file)
+        public bool ModificarProducto(PRODUCTO PRODUCTO, HttpPostedFileBase file)
         {
             PRODUCTO Producto = GetProductoByProductoId(PRODUCTO.ProductoId);
 
@@ -146,6 +174,21 @@ namespace BLL_DORMISIENTA
                 return false;
             }
 
+        }
+
+        public bool ValidarCodigoProducto(string CodigoProducto)
+        {
+            try
+            {
+                bool Producto = bd.PRODUCTO.Count(x => x.Codigo.ToUpper() == CodigoProducto.ToUpper()) > 0;
+                return Producto;
+            }
+            catch (Exception error)
+            {
+                //bd.Dispose();// cierra la conexion de BD
+                BLL_File.Escribir_Log(error.ToString());
+                return false;
+            }
         }
 
 

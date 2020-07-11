@@ -12,7 +12,7 @@ namespace BLL_DORMISIENTA
     public class BLL_File
     {
         // metodo para crear un directorio si no existe
-        public Boolean Crear_Directorio(string UrlCompleta)
+        public bool Crear_Directorio(string UrlCompleta)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace BLL_DORMISIENTA
         }
 
         // metodo para gusrdar un archivo en un directorio especifico
-        public Boolean Guardar_Archivo(string urlDestino_completa, string nombre_archivo_con_extension, HttpPostedFileBase file)// se guardan los archivos con codigo en vez del file name 
+        public bool Guardar_Archivo(string urlDestino_completa, string nombre_archivo_con_extension, HttpPostedFileBase file)// se guardan los archivos con codigo en vez del file name 
         {
             Crear_Directorio(urlDestino_completa);
 

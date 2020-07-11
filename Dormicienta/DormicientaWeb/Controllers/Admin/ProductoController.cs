@@ -7,15 +7,19 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace DormicientaWeb.Controllers.Admin
 {
     public class ProductoController : Controller
     {
+
+
         // GET: Producto
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
@@ -38,7 +42,7 @@ namespace DormicientaWeb.Controllers.Admin
         }
 
         // POST: MarcaAdd
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ProductoAdd(PRODUCTO Producto, HttpPostedFileBase file)
         {
@@ -76,7 +80,7 @@ namespace DormicientaWeb.Controllers.Admin
         }
 
         //Update
-        [HttpGet]
+        [System.Web.Mvc.HttpGet]
         public ActionResult ProductoUpdt(int id)
         {
             BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
@@ -94,7 +98,7 @@ namespace DormicientaWeb.Controllers.Admin
         }
 
         //Update
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ProductoUpdt(PRODUCTO Producto, HttpPostedFileBase file)
         {
@@ -131,7 +135,7 @@ namespace DormicientaWeb.Controllers.Admin
             }
         }
 
-        [HttpGet]
+        [System.Web.Mvc.HttpGet]
         public ActionResult DetalleProducto(int id)
         {
             BLL_Producto BLL_Producto = new BLL_Producto();
@@ -145,14 +149,27 @@ namespace DormicientaWeb.Controllers.Admin
             return View(Producto);
         }
 
-        public ActionResult VerImagen(int ProductoId)
+        public async Task<ActionResult> VerImagen(int ProductoId)
         {
-            BLL_Producto BLL_Producto = new BLL_Producto();
-            PRODUCTO Producto = BLL_Producto.GetProductoByProductoId(ProductoId);
-
+            PRODUCTO Producto = BLL_Producto.ListProducto.Where(x => x.ProductoId == ProductoId).FirstOrDefault();
             return File(Producto.Imagen, Producto.ContetType);
+
+            //BLL_Producto BLL_Producto = new BLL_Producto();
+            //var Producto = await BLL_Producto.GetProductoByProductoId(ProductoId);
+
+            //return File(Producto.Imagen, Producto.ContetType);
         }
 
+        //[System.Web.Mvc.HttpPost]
+        //public ActionResult ValidarCodigoProducto([System.Web.Http.FromBody] string Codigo)
+        //{
+        //    BLL_Login.VerificarSesionActiva();// valida que la sesion este activa 
+
+        //    BLL_Producto BLL_Producto = new BLL_Producto();
+        //    var Result = BLL_Producto.ValidarCodigoProducto(Codigo);
+        //    return Result;
+
+        //}
 
     }
 }

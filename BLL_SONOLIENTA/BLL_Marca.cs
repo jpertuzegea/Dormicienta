@@ -68,7 +68,7 @@ namespace BLL_DORMISIENTA
         }
 
         // metodo para crear una Marca
-        public Boolean GuargarMarca(MARCA MARCA)
+        public bool GuargarMarca(MARCA MARCA)
         {
             if (MARCA != null)
             {// si el objeto es diferente de nulo
@@ -91,7 +91,7 @@ namespace BLL_DORMISIENTA
         }
 
         // metodo para Modificar un Usuario
-        public Boolean ModificarMarca(MARCA MARCA)
+        public bool ModificarMarca(MARCA MARCA)
         {
             MARCA Marca = GetMarcaByMarcaId(MARCA.MarcaId);
 

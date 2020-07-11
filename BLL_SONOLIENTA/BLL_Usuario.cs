@@ -71,7 +71,7 @@ namespace BLL_DORMISIENTA
         }
 
         // metodo para crear un Usuario
-        public Boolean GuardarUsuario(USUARIO USUARIO)                     
+        public bool GuardarUsuario(USUARIO USUARIO)                     
         {
             if (USUARIO != null)
             {// si el objeto es diferente de nulo
@@ -99,7 +99,7 @@ namespace BLL_DORMISIENTA
         }
                       
         // metodo para Modificar un Usuario
-        public Boolean ModificarUsuario(USUARIO USUARIO)
+        public bool ModificarUsuario(USUARIO USUARIO)
         {
             USUARIO usuarios = GetUsuarioByUsuarioId(USUARIO.UsuarioId);
 
@@ -151,7 +151,7 @@ namespace BLL_DORMISIENTA
         }
 
         // Metodo para validar si el usuarioRed existe ya registrado en la BD
-        public Boolean ExisteUsuarioRed(String usuariored)
+        public bool ExisteUsuarioRed(String usuariored)
         {
             // si existe en la bd, se envia true y no se puede volvera utilizar este usuarioRed 
             // de lo contrario se envia false y  si se puede continuar con el guardado 
