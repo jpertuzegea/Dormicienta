@@ -37,23 +37,12 @@
                     @Html.EditorFor(model => model.Codigo, new { htmlAttributes = new { @onkeyup = "UpperCase(this)", @class = "form-control", @disabled = true } })
                 </div>
 
-                <div class="form-group">
-                    <label>Precio </label>
-                    <input type="text" class="form-control" disabled="true" value="$ @String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0,0}", Model.Precio)" />
-                 </div>
-
-            </div>
-            <div class="col-sm-6 ">
-                <br>
-                 
-                <div class="form-group">
-                    <label>Descripcion </label>
-                    @Html.TextArea("Descripcion", null, new { @class = "form-control", @onkeyup = "UpperCase(this)", @rows = "4", @disabled = true })
-                </div>
-
                 <hr />
-                <h3> Pedidos </h3
->
+                <h3>
+                    Pedidos
+                </h3>
+
+
                 <div class="form-group" style="color:#1ab394">
                     <img width="40" height="30" src="~/Imagenes/Email.jpg" />  @ViewBag.CorreoContacto
                 </div>
@@ -63,6 +52,19 @@
                 </div>
 
 
+                @*<div class="form-group">
+           <label>Precio </label>
+           <input type="text" class="form-control" disabled="true" value="$ @String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0,0}", Model.Precio)" />
+        </div>*@
+
+            </div>
+            <div class="col-sm-6 ">
+                <br>
+
+                <div class="form-group">
+                    <label>Descripcion </label>
+                    @Html.TextArea("Descripcion", null, new { @class = "form-control", @onkeyup = "UpperCase(this)", @rows = "15", @disabled = true })
+                </div> 
 
             </div>
 

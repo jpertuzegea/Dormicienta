@@ -36,15 +36,15 @@ namespace BLL_DORMISIENTA
                 switch (Filtro)
                 {
                     case EnumFiltroEstado.Activo://Activo
-                        List = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Activo).OrderBy(c => c.Categotia).ToList();
+                        List = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Activo).ToList();
                         break;
 
                     case EnumFiltroEstado.Inactivo://Inactivo
-                        List = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Inactivo).OrderBy(c => c.Categotia).ToList();
+                        List = bd.PRODUCTO.Where(c => c.Estado == (byte)EnumEstados.Inactivo).ToList();
                         break;
 
                     case EnumFiltroEstado.Todos:// Todos
-                        List = bd.PRODUCTO.OrderBy(c => c.Categotia).ToList(); 
+                        List = bd.PRODUCTO.ToList(); 
                         ListProducto = List;
                         break;
                 }

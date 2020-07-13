@@ -11,7 +11,7 @@
 
         <div class="col-lg-1">
             <br>
-            <a data-toggle="modal" class="btn btn-primary" onclick="Contactenos()" id="BTNContactenos" href="#myModal2">Contactenos</a>
+            @*<a data-toggle="modal" class="btn btn-primary" onclick="Contactenos()" id="BTNContactenos" href="#myModal2">Contactenos</a>*@
         </div>
 
         <div class="col-lg-10">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-lg-1">
-           
+
         </div>
     </div>
 </div>
@@ -43,7 +43,8 @@
                             <img width="170" height="170" alt="image" src="@Url.Action("VerImagen", "Producto", new { ProductoId = item.ProductoId })" />
                             <div class="product-desc">
                                 <span class="product-price">
-                                    $ @String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0,0}", item.Precio)
+                                    @*$ @String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:0,0}", item.Precio)*@
+                                    Cod: @item.Codigo
                                 </span>
 
                                 <a href="#" class="product-name" style="color:#1ab394"> @item.Nombre  </a>

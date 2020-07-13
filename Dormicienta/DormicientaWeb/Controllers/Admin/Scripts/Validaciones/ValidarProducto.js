@@ -1,5 +1,5 @@
 ﻿
-$("#BotonRegistrar").click(function () {
+$("#Codigo").blur(function () {// Se ejecuta cuando el campo pierde el foco
       
     // validacion ajax que los campos ingresados no existan en la bd 
     var resultado;
@@ -10,7 +10,7 @@ $("#BotonRegistrar").click(function () {
 
     $.ajax({
         type: 'POST',
-        url: 'Producto/ValidarCodigoProducto',
+        url: 'ProductosWebApi/ValidarCodigo',
         data: datos,
         success: function (result) {
             resultado = result;
@@ -20,7 +20,8 @@ $("#BotonRegistrar").click(function () {
     });
 
     if (resultado) {
-        toastr.error('El Codigo Ingresado ya se encuentra registrada', 'ERROR');
+   //  $("#Codigo").focus();
+        toastr.error('El Codigo Ingresado ya se encuentra registrado', 'ERROR');
         return false;
     }
 });

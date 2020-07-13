@@ -19,12 +19,18 @@ namespace DormicientaWeb.Controllers.Admin
 
 
         // GET: Producto
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string Mensaje, string Creado)
         {
+            if (Mensaje != null)
+            {
+                ViewBag.Mensaje = Mensaje;
+            }
             BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
             BLL_Producto BLL_Producto = new BLL_Producto();
             List<PRODUCTO> Producto = BLL_Producto.ListarProductos(EnumFiltroEstado.Todos);
+            ViewBag.Mensaje = Mensaje;
+            ViewBag.Creado = Creado;
             return View(Producto);
         }
 
@@ -61,7 +67,7 @@ namespace DormicientaWeb.Controllers.Admin
                     BLL_Producto BLL_Producto = new BLL_Producto();
                     if (BLL_Producto.GuargarProducto(Producto, file))
                     {// pregunta si la funcion de creacion se ejecuto con exito
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { Mensaje = "Producto Creado con Exito", Creado = "true" });
                     }
                     else
                     {// no creado
@@ -117,7 +123,7 @@ namespace DormicientaWeb.Controllers.Admin
                     BLL_Producto BLL_Producto = new BLL_Producto();
                     if (BLL_Producto.ModificarProducto(Producto, file))
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { Mensaje = "Producto Modificado con Exito", Creado = "true" });
                     }
                     else
                     {

@@ -13,7 +13,7 @@ namespace DormicientaWeb.Controllers.Admin
 {
     public class MarcaController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string Mensaje, string Creado)
         {
             BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
@@ -45,7 +45,7 @@ namespace DormicientaWeb.Controllers.Admin
                 BLL_Marca BLL_Marca = new BLL_Marca();
                 if (BLL_Marca.GuargarMarca(MARCA))
                 {// pregunta si la funcion de creacion se ejecuto con exito
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", new { Mensaje = "Marca Creada con Exito", Creado = "true" });
                 }
                 else
                 {// no creado
@@ -86,7 +86,7 @@ namespace DormicientaWeb.Controllers.Admin
                     BLL_Marca BLL_Marca = new BLL_Marca();
                     if (BLL_Marca.ModificarMarca(MARCA))
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { Mensaje = "Marca Modificada con Exito", Creado = "true" });
                     }
                     else
                     {

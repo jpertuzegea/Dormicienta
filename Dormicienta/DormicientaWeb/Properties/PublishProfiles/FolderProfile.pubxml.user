@@ -77,28 +77,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/BLL_SONOLIENTA.dll">
-      <publishTime>07/11/2020 12:55:57</publishTime>
+      <publishTime>07/12/2020 13:49:30</publishTime>
     </File>
     <File Include="bin/BLL_SONOLIENTA.dll.config">
       <publishTime>07/05/2020 19:35:47</publishTime>
     </File>
     <File Include="bin/BLL_SONOLIENTA.pdb">
-      <publishTime>07/11/2020 12:55:57</publishTime>
+      <publishTime>07/12/2020 13:49:30</publishTime>
     </File>
     <File Include="bin/DAO_SONOLIENTA.dll">
       <publishTime>07/10/2020 19:58:49</publishTime>
     </File>
     <File Include="bin/DAO_SONOLIENTA.dll.config">
-      <publishTime>07/11/2020 12:05:53</publishTime>
+      <publishTime>07/12/2020 15:06:21</publishTime>
     </File>
     <File Include="bin/DAO_SONOLIENTA.pdb">
       <publishTime>07/10/2020 19:58:49</publishTime>
     </File>
     <File Include="bin/DormicientaWeb.dll">
-      <publishTime>07/11/2020 12:56:50</publishTime>
+      <publishTime>07/12/2020 15:51:57</publishTime>
     </File>
     <File Include="bin/DormicientaWeb.pdb">
-      <publishTime>07/11/2020 12:56:50</publishTime>
+      <publishTime>07/12/2020 15:51:57</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/16/2020 20:38:42</publishTime>
@@ -356,7 +356,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/10/2020 00:33:57</publishTime>
     </File>
     <File Include="Controllers/Admin/Scripts/Validaciones/ValidarProducto.js">
-      <publishTime>07/11/2020 01:16:56</publishTime>
+      <publishTime>07/12/2020 12:56:45</publishTime>
     </File>
     <File Include="Controllers/Admin/Scripts/ValidarDobleClic.js">
       <publishTime>07/09/2020 22:49:09</publishTime>
@@ -4736,7 +4736,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/10/2020 21:18:11</publishTime>
     </File>
     <File Include="Views/Categoria/Index.cshtml">
-      <publishTime>07/10/2020 16:28:02</publishTime>
+      <publishTime>07/12/2020 14:58:41</publishTime>
     </File>
     <File Include="Views/Contactenos/Index.cshtml">
       <publishTime>07/10/2020 20:21:10</publishTime>
@@ -4751,7 +4751,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/10/2020 16:29:22</publishTime>
     </File>
     <File Include="Views/Marca/Index.cshtml">
-      <publishTime>07/10/2020 16:29:21</publishTime>
+      <publishTime>07/12/2020 14:58:23</publishTime>
     </File>
     <File Include="Views/Marca/MarcaAdd.cshtml">
       <publishTime>07/10/2020 21:19:20</publishTime>
@@ -4760,10 +4760,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/10/2020 21:19:29</publishTime>
     </File>
     <File Include="Views/Producto/DetalleProducto.cshtml">
-      <publishTime>07/10/2020 16:16:04</publishTime>
+      <publishTime>07/12/2020 15:43:39</publishTime>
     </File>
     <File Include="Views/Producto/Index.cshtml">
-      <publishTime>07/10/2020 16:29:21</publishTime>
+      <publishTime>07/12/2020 14:56:07</publishTime>
     </File>
     <File Include="Views/Producto/ProductoAdd.cshtml">
       <publishTime>07/11/2020 01:17:15</publishTime>
@@ -4775,13 +4775,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 22:19:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/10/2020 21:59:30</publishTime>
+      <publishTime>07/12/2020 14:42:14</publishTime>
     </File>
     <File Include="Views/Tienda/Index.cshtml">
-      <publishTime>07/10/2020 22:00:15</publishTime>
+      <publishTime>07/12/2020 15:20:27</publishTime>
     </File>
     <File Include="Views/Usuario/Index.cshtml">
-      <publishTime>07/10/2020 16:29:21</publishTime>
+      <publishTime>07/12/2020 14:58:10</publishTime>
     </File>
     <File Include="Views/Usuario/UsuarioAdd.cshtml">
       <publishTime>07/10/2020 16:29:20</publishTime>
@@ -4796,7 +4796,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 22:19:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/11/2020 12:26:08</publishTime>
+      <publishTime>07/12/2020 15:10:02</publishTime>
     </File>
   </ItemGroup>
 </Project>

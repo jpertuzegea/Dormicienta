@@ -13,7 +13,7 @@ namespace DormicientaWeb.Controllers.Admin
 {
     public class UsuarioController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string Mensaje, string Creado)
         {
             BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
@@ -42,7 +42,7 @@ namespace DormicientaWeb.Controllers.Admin
                 BLL_Usuario BLL_Usuario = new BLL_Usuario();
                 if (BLL_Usuario.GuardarUsuario(USUARIO))
                 {// pregunta si la funcion de creacion se ejecuto con exito
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", new { Mensaje = "Usuario Creado con Exito", Creado = "true" });
                 }
                 else
                 {// no creado
@@ -85,7 +85,7 @@ namespace DormicientaWeb.Controllers.Admin
                     BLL_Usuario BLL_Usuario = new BLL_Usuario();
                     if (BLL_Usuario.ModificarUsuario(USUARIO))
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { Mensaje = "Usuario Modificado con Exito", Creado = "true" });
                     }
                     else
                     {

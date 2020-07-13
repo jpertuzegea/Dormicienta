@@ -13,7 +13,7 @@ namespace DormicientaWeb.Controllers.Admin
 {
     public class CategoriaController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string Mensaje, string Creado)
         {
             BLL_Login.VerificarSesionActiva();// valida que la sesion este activa
 
@@ -48,7 +48,7 @@ namespace DormicientaWeb.Controllers.Admin
                     BLL_Categoria BLL_Categoria = new BLL_Categoria();
                     if (BLL_Categoria.GuargarCategoria(CATEGORIA, file))
                     {// pregunta si la funcion de creacion se ejecuto con exito
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { Mensaje = "Categoria Creada con Exito", Creado = "true" });
                     }
                     else
                     {// no creado
@@ -94,7 +94,7 @@ namespace DormicientaWeb.Controllers.Admin
                     BLL_Categoria BLL_Categoria = new BLL_Categoria();
                     if (BLL_Categoria.ModificarCategoria(CATEGORIA, file))
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { Mensaje = "Categoria Modificada con Exito", Creado = "true" });
                     }
                     else
                     {

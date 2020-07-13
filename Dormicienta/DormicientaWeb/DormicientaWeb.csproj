@@ -170,6 +170,7 @@
     <Compile Include="Controllers\Admin\ProductoController.cs" />
     <Compile Include="Controllers\Admin\TiendaController.cs" />
     <Compile Include="Controllers\Admin\UsuarioController.cs" />
+    <Compile Include="Controllers\Admin\WebApis\ProductosWebApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

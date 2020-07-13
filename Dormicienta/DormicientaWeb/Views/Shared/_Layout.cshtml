@@ -89,12 +89,12 @@
                                 </span>
                             </a>
                             @*<ul class="dropdown-menu animated fadeInRight m-t-xs">
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="mailbox.html">Mailbox</a></li>
-                    <li class="divider"></li>
-                    <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Login")</li>
-                </ul>*@
+                                    <li><a href="profile.html">Profile</a></li>
+                                    <li><a href="contacts.html">Contacts</a></li>
+                                    <li><a href="mailbox.html">Mailbox</a></li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Login")</li>
+                                </ul>*@
                         </div>
                         <div class="logo-element">
                             IN+
@@ -120,49 +120,23 @@
                                 </ul>
                             </li>
                         }
-
                     }
 
                     <li>
-                        <a href="/Tienda/index?CategoriaId=1"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Hombre</span> <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Tienda</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>@Html.ActionLink("Gorros Hombre", "index", "Tienda", new { CategoriaId = 1 }, null)</li>
+                            <li>@Html.ActionLink("Gorros Mujer", "index", "Tienda", new { CategoriaId = 2 }, null)</li>
+                        </ul>
                     </li>
 
-                    <li>
-                        <a href="/Tienda/index?CategoriaId=2"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Mujer</span> <span class="fa arrow"></span></a>
-                    </li> 
-
                     @*<li>
-        <a disabled href="index.html"><i class="fa fa-child"></i> <span class="nav-label">Opciones Especiales</span> <span class="fa arrow"></span></a>
-        <ul disabled class="nav nav-second-level collapse">*@
-                    @*<li>@Html.ActionLink("Imprimir Stiker", "index", "Imprimir_stiker")</li>
-        <li>@Html.ActionLink("Abrir Radicado", "index", "Abrir_radicado")</li>*@
-                    @*</ul>
-        </li>*@
+                            <a href="/Tienda/index?CategoriaId=1"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Hombre</span> <span class="fa arrow"></span></a>
+                        </li>
 
-                    @*<li>
-        <a href="index.html"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reportes</span> <span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level collapse">*@
-
-                    @*<li>@Html.ActionLink("Ingresos al Sistema", "index", "Reportes")</li>*@
-
-                    @*@if (PROYECTO_SIGECOR.Controllers.Utilidades.Funciones_Perfiles.Verificar_perfil((int)Session["id_usuario_sigecor"], 72))// perfil 72 es poder visualizar el sub menu Correspondencia enviada
-        {// solo es descomentar esta linea y ya *@
-                    @*<li>@Html.ActionLink("Correspondencia Enviada", "CorrespondenciaEnviada", "Reportes")</li>*@
-                    @*}*@
-
-                    @*@if (PROYECTO_SIGECOR.Controllers.Utilidades.Funciones_Perfiles.Verificar_perfil((int)Session["id_usuario_sigecor"], xxxx))// perfil xxxxx es poder visualizar el sub menu Correspondencia enviada
-        {// solo es descomentar esta linea y ya *@
-                    @*<li>@Html.ActionLink("Mi Dependencia", "MiDependencia", "Reportes")</li>*@
-                    @*}*@
-                    @*</ul>
-        </li>*@
-
-                    @*<li>
-            <a href="index.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Analisis de Datos</span> <span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level collapse">
-                <li>@Html.ActionLink("Ingresos al Sistema", "index", "Ingresos_sistema_grafico")</li>
-            </ul>
-        </li>*@
+                        <li>
+                            <a href="/Tienda/index?CategoriaId=2"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Mujer</span> <span class="fa arrow"></span></a>
+                        </li>*@
 
                 </ul>
             </div>
