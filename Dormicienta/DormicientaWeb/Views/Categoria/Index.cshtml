@@ -67,6 +67,9 @@
                                         Nombre
                                     </th>
                                     <th>
+                                        Nombre En Menu
+                                    </th>
+                                    <th>
                                         Descripcion
                                     </th>
                                     <th>
@@ -82,41 +85,47 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Nombre)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Descripcion)
-                                        </td>
-                                        <td>
-                                            <img width="60" height="60" src="@Url.Action("VerImagen", "Categoria", new { CategoriaId = item.CategoriaId})" />
-                                        </td>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NombreEnMenu)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </td>
+                                    <td>
+                                        <img width="60" height="60" src="@Url.Action("VerImagen", "Categoria", new { CategoriaId = item.CategoriaId})" />
+                                    </td>
 
-                                        <td>
-                                            @{ string estado = "";
-                                                if (item.Estado == 1)
-                                                {
-                                                    estado = "Activo";
-                                                }
-                                                if (item.Estado == 0)
-                                                {
-                                                    estado = "Inactivo";
-                                                }
+                                    <td>
+                                        @{ string estado = "";
+                                            if (item.Estado == 1)
+                                            {
+                                                estado = "Activo";
                                             }
-                                            @Html.DisplayFor(modelItem => estado)
-                                        </td>
+                                            if (item.Estado == 0)
+                                            {
+                                                estado = "Inactivo";
+                                            }
+                                        }
+                                        @Html.DisplayFor(modelItem => estado)
+                                    </td>
 
-                                        <td>
-                                            <a href="#myModal2" onclick="ModificarCategoria(this.id)" data-toggle="modal" id="@item.CategoriaId"><i class="fa fa-edit"></i></a>
-                                        </td>
-                                    </tr>
+                                    <td>
+                                        <a href="#myModal2" onclick="ModificarCategoria(this.id)" data-toggle="modal" id="@item.CategoriaId"><i class="fa fa-edit"></i></a>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>
                                         Nombre
+                                    </th>
+                                    <th>
+                                        Nombre En Menu
                                     </th>
                                     <th>
                                         Descripcion

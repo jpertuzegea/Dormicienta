@@ -11,7 +11,8 @@
           </Key>
           <Property Name="CategoriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="70" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="NombreEnMenu" Type="varchar" MaxLength="200" />
+          <Property Name="Descripcion" Type="varchar(max)" />
           <Property Name="Imagen" Type="varbinary(max)" />
           <Property Name="ContetType" Type="varchar" MaxLength="50" />
           <Property Name="Estado" Type="tinyint" />
@@ -34,7 +35,7 @@
           </Key>
           <Property Name="MarcaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="70" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="Descripcion" Type="varchar(max)" />
           <Property Name="Estado" Type="tinyint" />
         </EntityType>
         <EntityType Name="PRODUCTO">
@@ -44,7 +45,7 @@
           <Property Name="ProductoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="150" />
           <Property Name="Codigo" Type="varchar" MaxLength="30" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="240" />
+          <Property Name="Descripcion" Type="varchar(max)" />
           <Property Name="Precio" Type="int" />
           <Property Name="Categotia" Type="int" />
           <Property Name="CantidadDisponible" Type="int" />
@@ -66,7 +67,7 @@
           <Property Name="UsuarioRegistra" Type="int" Nullable="false" />
           <Property Name="Estado" Type="tinyint" />
         </EntityType>
-        <Association Name="FK__PRODUCTO__Catego__3D5E1FD2">
+        <Association Name="FK__PRODUCTO__Catego__4F7CD00D">
           <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="0..1" />
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -84,7 +85,7 @@
           <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__PRODUCTO__Catego__3D5E1FD2" Association="Self.FK__PRODUCTO__Catego__3D5E1FD2">
+          <AssociationSet Name="FK__PRODUCTO__Catego__4F7CD00D" Association="Self.FK__PRODUCTO__Catego__4F7CD00D">
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
@@ -99,7 +100,7 @@
           <EntitySet Name="MARCA" EntityType="DORMISIENTAModel.MARCA" />
           <EntitySet Name="PRODUCTO" EntityType="DORMISIENTAModel.PRODUCTO" />
           <EntitySet Name="USUARIO" EntityType="DORMISIENTAModel.USUARIO" />
-          <AssociationSet Name="FK__PRODUCTO__Catego__3D5E1FD2" Association="DORMISIENTAModel.FK__PRODUCTO__Catego__3D5E1FD2">
+          <AssociationSet Name="FK__PRODUCTO__Catego__4F7CD00D" Association="DORMISIENTAModel.FK__PRODUCTO__Catego__4F7CD00D">
             <End Role="CATEGORIA" EntitySet="CATEGORIA" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
@@ -110,11 +111,12 @@
           </Key>
           <Property Name="CategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NombreEnMenu" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ContetType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Byte" />
-          <NavigationProperty Name="PRODUCTO" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__3D5E1FD2" FromRole="CATEGORIA" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__4F7CD00D" FromRole="CATEGORIA" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="CONTACTENOS">
           <Key>
@@ -134,7 +136,7 @@
           </Key>
           <Property Name="MarcaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Byte" />
         </EntityType>
         <EntityType Name="PRODUCTO">
@@ -144,14 +146,14 @@
           <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Codigo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="240" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Precio" Type="Int32" />
           <Property Name="Categotia" Type="Int32" />
           <Property Name="CantidadDisponible" Type="Int32" />
           <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ContetType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Byte" />
-          <NavigationProperty Name="CATEGORIA" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__3D5E1FD2" FromRole="PRODUCTO" ToRole="CATEGORIA" />
+          <NavigationProperty Name="CATEGORIA" Relationship="DORMISIENTAModel.FK__PRODUCTO__Catego__4F7CD00D" FromRole="PRODUCTO" ToRole="CATEGORIA" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -167,7 +169,7 @@
           <Property Name="UsuarioRegistra" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Byte" />
         </EntityType>
-        <Association Name="FK__PRODUCTO__Catego__3D5E1FD2">
+        <Association Name="FK__PRODUCTO__Catego__4F7CD00D">
           <End Type="DORMISIENTAModel.CATEGORIA" Role="CATEGORIA" Multiplicity="0..1" />
           <End Type="DORMISIENTAModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -192,6 +194,7 @@
                 <ScalarProperty Name="ContetType" ColumnName="ContetType" />
                 <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="NombreEnMenu" ColumnName="NombreEnMenu" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
               </MappingFragment>

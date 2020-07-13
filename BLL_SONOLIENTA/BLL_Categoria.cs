@@ -121,6 +121,7 @@ namespace BLL_DORMISIENTA
                     }
 
                     Categoria.Nombre = CATEGORIA.Nombre;
+                    Categoria.NombreEnMenu = CATEGORIA.NombreEnMenu;
                     Categoria.Descripcion = CATEGORIA.Descripcion;
                     Categoria.Estado = CATEGORIA.Estado;
 

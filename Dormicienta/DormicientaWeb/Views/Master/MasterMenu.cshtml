@@ -1,0 +1,16 @@
+﻿
+@model List<DAO_SONOLIENTA.CATEGORIA>
+
+
+<li>
+    <a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Tienda</span> <span class="fa arrow"></span></a>
+    
+    <ul class="nav nav-second-level collapse">
+
+        @foreach (var item in Model)
+        { 
+            <li>@Html.ActionLink(item.NombreEnMenu, "index", "Tienda", new { CategoriaId = item.CategoriaId }, null)</li> 
+        }
+    </ul>
+
+</li>

@@ -22,6 +22,7 @@ namespace DAO_SONOLIENTA
     
         public int CategoriaId { get; set; }
         public string Nombre { get; set; }
+        public string NombreEnMenu { get; set; }
         public string Descripcion { get; set; }
         public byte[] Imagen { get; set; }
         public string ContetType { get; set; }

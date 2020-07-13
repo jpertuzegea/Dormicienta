@@ -171,6 +171,7 @@
     <Compile Include="Controllers\Admin\TiendaController.cs" />
     <Compile Include="Controllers\Admin\UsuarioController.cs" />
     <Compile Include="Controllers\Admin\WebApis\ProductosWebApiController.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1686,6 +1687,7 @@
     <Content Include="Views\Tienda\Index.cshtml" />
     <Content Include="Views\Contactenos\Index.cshtml" />
     <Content Include="Views\Contactenos\Mensajes.cshtml" />
+    <Content Include="Views\Master\MasterMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

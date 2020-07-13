@@ -122,21 +122,21 @@
                         }
                     }
 
-                    <li>
-                        <a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Tienda</span> <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li>@Html.ActionLink("Gorros Hombre", "index", "Tienda", new { CategoriaId = 1 }, null)</li>
-                            <li>@Html.ActionLink("Gorros Mujer", "index", "Tienda", new { CategoriaId = 2 }, null)</li>
-                        </ul>
-                    </li>
+
+                    @*Dibuja las opciones de menu en estado activo*@
+                    @{
+                        Html.RenderAction("MasterMenu", "Master");
+                    }
 
                     @*<li>
-                            <a href="/Tienda/index?CategoriaId=1"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Hombre</span> <span class="fa arrow"></span></a>
-                        </li>
-
-                        <li>
-                            <a href="/Tienda/index?CategoriaId=2"><i class="fa fa-gift"></i> <span class="nav-label">Gorros Mujer</span> <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-gift"></i> <span class="nav-label">Tienda</span> <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>@Html.ActionLink("Gorros Hombre", "index", "Tienda", new { CategoriaId = 1 }, null)</li>
+                                <li>@Html.ActionLink("Gorros Mujer", "index", "Tienda", new { CategoriaId = 2 }, null)</li>
+                            </ul>
                         </li>*@
+
+
 
                 </ul>
             </div>
