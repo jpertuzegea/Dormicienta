@@ -57,6 +57,9 @@
     <Compile Include="CONTACTENOS.cs">
       <DependentUpon>Dormisienta_BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="CONTADORVISITAS.cs">
+      <DependentUpon>Dormisienta_BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dormisienta_BD.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -162,8 +162,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Admin\BienvenidaController.cs" />
     <Compile Include="Controllers\Admin\CategoriaController.cs" />
     <Compile Include="Controllers\Admin\ContactenosController.cs" />
+    <Compile Include="Controllers\Admin\ContadorVisitasController.cs" />
     <Compile Include="Controllers\Admin\InicioController.cs" />
     <Compile Include="Controllers\Admin\LoginController.cs" />
     <Compile Include="Controllers\Admin\MarcaController.cs" />
@@ -1688,6 +1690,8 @@
     <Content Include="Views\Contactenos\Index.cshtml" />
     <Content Include="Views\Contactenos\Mensajes.cshtml" />
     <Content Include="Views\Master\MasterMenu.cshtml" />
+    <Content Include="Views\ContadorVisitas\Index.cshtml" />
+    <Content Include="Views\Bienvenida\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

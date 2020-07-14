@@ -27,6 +27,7 @@ namespace DAO_SONOLIENTA
     
         public virtual DbSet<CATEGORIA> CATEGORIA { get; set; }
         public virtual DbSet<CONTACTENOS> CONTACTENOS { get; set; }
+        public virtual DbSet<CONTADORVISITAS> CONTADORVISITAS { get; set; }
         public virtual DbSet<MARCA> MARCA { get; set; }
         public virtual DbSet<PRODUCTO> PRODUCTO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }

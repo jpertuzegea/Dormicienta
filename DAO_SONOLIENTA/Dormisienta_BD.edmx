@@ -29,6 +29,14 @@
           <Property Name="Asunto" Type="varchar" MaxLength="130" />
           <Property Name="Mensaje" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="CONTADORVISITAS">
+          <Key>
+            <PropertyRef Name="ContadorVisitasId" />
+          </Key>
+          <Property Name="ContadorVisitasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ip" Type="varchar" MaxLength="20" />
+          <Property Name="FechaVisita" Type="datetime" />
+        </EntityType>
         <EntityType Name="MARCA">
           <Key>
             <PropertyRef Name="MarcaId" />
@@ -82,6 +90,7 @@
         <EntityContainer Name="DORMISIENTAModelStoreContainer">
           <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTACTENOS" EntityType="Self.CONTACTENOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTADORVISITAS" EntityType="Self.CONTADORVISITAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
@@ -97,6 +106,7 @@
         <EntityContainer Name="Dormisienta_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORIA" EntityType="DORMISIENTAModel.CATEGORIA" />
           <EntitySet Name="CONTACTENOS" EntityType="DORMISIENTAModel.CONTACTENOS" />
+          <EntitySet Name="CONTADORVISITAS" EntityType="DORMISIENTAModel.CONTADORVISITAS" />
           <EntitySet Name="MARCA" EntityType="DORMISIENTAModel.MARCA" />
           <EntitySet Name="PRODUCTO" EntityType="DORMISIENTAModel.PRODUCTO" />
           <EntitySet Name="USUARIO" EntityType="DORMISIENTAModel.USUARIO" />
@@ -129,6 +139,14 @@
           <Property Name="FechaSolicitud" Type="DateTime" Precision="3" />
           <Property Name="Asunto" Type="String" MaxLength="130" FixedLength="false" Unicode="false" />
           <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CONTADORVISITAS">
+          <Key>
+            <PropertyRef Name="ContadorVisitasId" />
+          </Key>
+          <Property Name="ContadorVisitasId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ip" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FechaVisita" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="MARCA">
           <Key>
@@ -210,6 +228,15 @@
                 <ScalarProperty Name="TelefonoSolicitante" ColumnName="TelefonoSolicitante" />
                 <ScalarProperty Name="NombreSolicitate" ColumnName="NombreSolicitate" />
                 <ScalarProperty Name="ContactenosId" ColumnName="ContactenosId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTADORVISITAS">
+            <EntityTypeMapping TypeName="DORMISIENTAModel.CONTADORVISITAS">
+              <MappingFragment StoreEntitySet="CONTADORVISITAS">
+                <ScalarProperty Name="FechaVisita" ColumnName="FechaVisita" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="ContadorVisitasId" ColumnName="ContadorVisitasId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

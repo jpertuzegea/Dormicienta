@@ -34,12 +34,15 @@ namespace BLL_SONOLIENTA
                         "Mensaje : " + Contactenos.Mensaje;
 
                     BLL_Email BLL_Email = new BLL_Email();
-                    BLL_Email.EnviarCorreo(CorreoContacto, Contactenos.Asunto, Mensaje);
+                  //  BLL_Email.EnviarCorreo(CorreoContacto, Contactenos.Asunto, Mensaje);
 
                     return true;
                 }
                 catch (Exception Error)
                 {
+                    BLL_Email BLL_Email = new BLL_Email();
+                    BLL_Email.EnviarCorreo("pagasoft_pe@hotmail.com", "Error Dormicienta", Error.ToString());
+
                     BLL_File.Escribir_Log(Error.ToString());
                     return false;
                 }

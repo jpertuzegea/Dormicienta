@@ -1,4 +1,5 @@
 ﻿using BLL_DORMISIENTA;
+using BLL_SONOLIENTA;
 using DAO_DORMISIENTA;
 using DAO_DORMISIENTA.Enum;
 using DAO_SONOLIENTA;
@@ -12,8 +13,7 @@ using System.Web.Mvc;
 namespace DormicientaWeb.Controllers.Admin
 {
     public class TiendaController : Controller
-    { // GET: Tienda
-
+    {
 
         public async Task<ActionResult> Index(string CategoriaId)
         {
@@ -28,5 +28,7 @@ namespace DormicientaWeb.Controllers.Admin
             ViewBag.Categoria = Categoria;
             return View(Producto);
         }
+
+
     }
 }

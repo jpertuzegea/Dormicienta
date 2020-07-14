@@ -7,9 +7,10 @@
       <Diagram DiagramId="6f13c5ef47814653ae779bbf400682f7" Name="Diagram1" ZoomLevel="34">
         <EntityTypeShape EntityType="DORMISIENTAModel.CATEGORIA" Width="1.5" PointX="0.75" PointY="1.25" />
         <EntityTypeShape EntityType="DORMISIENTAModel.CONTACTENOS" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DORMISIENTAModel.MARCA" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DORMISIENTAModel.CONTADORVISITAS" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DORMISIENTAModel.MARCA" Width="1.5" PointX="2.75" PointY="5.75" />
         <EntityTypeShape EntityType="DORMISIENTAModel.PRODUCTO" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="DORMISIENTAModel.USUARIO" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DORMISIENTAModel.USUARIO" Width="1.5" PointX="5.75" PointY="4.75" />
         <AssociationConnector Association="DORMISIENTAModel.FK__PRODUCTO__Catego__4F7CD00D" />
       </Diagram>
     </edmx:Diagrams>
